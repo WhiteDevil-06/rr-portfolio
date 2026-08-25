@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Dark Engineering Panel Background -->
+  <rect width="64" height="64" rx="14" fill="#0D0F12" stroke="rgba(255, 255, 255, 0.18)" stroke-width="2"/>
+  
+  <!-- Glowing System Status Dot -->
+  <circle cx="50" cy="14" r="3.5" fill="#B8FF4A"/>
+  
+  <!-- Dual RR Identity Mark -->
+  <text x="32" y="44" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="28" font-weight="900" text-anchor="middle" letter-spacing="-1">
+    <tspan fill="#B8FF4A">R</tspan><tspan fill="#F2F0EA">R</tspan>
+  </text>
+</svg>

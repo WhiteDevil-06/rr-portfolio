@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rakshith Raghavendra — Interactive Engineering Resume</title>
+    <meta name="description" content="Official Engineering Resume of Rakshith Raghavendra. CSE-AI/ML Student at RVCE (CGPA: 9.08/10, Semester 5). AI/ML, Computer Vision, Cybersecurity, Embedded Systems & Robotics.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Site Favicon / Logo -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Canvas Technical Grid & Coordinate Layer -->
+    <canvas id="grid-canvas"></canvas>
+
+    <!-- Custom Technical Dual Cursor -->
+    <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+
+    <!-- Live Coordinate & Grid Overlay (Desktop Only) -->
+    <div class="grid-hud" aria-hidden="true">
+        <span id="hud-coords">X: 000 | Y: 000</span>
+        <span class="hud-divider">/</span>
+        <span id="hud-status">RESUME.VIEW // INTERACTIVE</span>
+    </div>
+
+    <main class="resume-page-wrapper">
+        <div class="container">
+            <!-- Header Action Toolbar -->
+            <div class="resume-header-toolbar">
+                <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+                    <a href="index.html" class="nav-brand" aria-label="Rakshith Raghavendra Home">
+                        <span class="brand-square"></span>
+                        <span class="brand-text">RR <span class="brand-sub">/ RESUME</span></span>
+                    </a>
+                    <a href="index.html" class="btn btn-secondary magnetic-btn" style="padding: 6px 14px; font-size: 0.72rem;">
+                        <span>← BACK TO HOME</span>
+                    </a>
+                </div>
+
+                <div class="resume-actions-group">
+                    <a href="assets/resume_rr.pdf" download="Rakshith_Raghavendra_Resume.pdf" onclick="downloadResumePDF(event)" class="btn btn-primary magnetic-btn">
+                        <span>DOWNLOAD RESUME PDF ⤓</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Interactive Resume Sheet Container -->
+            <article class="resume-sheet" id="resume-document">
+                <!-- Header / Identity Block -->
+                <header class="resume-hero-block">
+                    <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 10px;">
+                        <h1 class="resume-name"><span class="text-accent">R</span>AKSHITH <span class="text-accent">R</span>AGHAVENDRA</h1>
+                        <span class="cgpa-highlight">RVCE · SEMESTER 5 IN PROGRESS (CGPA 9.08/10)</span>
+                    </div>
+                    
+                    <div class="resume-contact-bar">
+                        <span class="resume-contact-item">
+                            <svg class="contact-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            Bengaluru, India
+                        </span>
+                        <span class="meta-sep">|</span>
+                        <span class="resume-contact-item">
+                            <svg class="contact-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            +91-9449927385
+                        </span>
+                        <span class="meta-sep">|</span>
+                        <span class="resume-contact-item">
+                            <svg class="contact-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            <a href="mailto:rakshithraghavendra.rr2006@gmail.com?subject=Inquiry%20%2F%20Collaboration%20%E2%80%94%20Rakshith%20Raghavendra&body=Hi%20Rakshith%2C%0A%0AI%20came%20across%20your%20engineering%20resume%20and%20would%20like%20to%20reach%20out%20regarding%20...%0A%0ABest%20regards%2C%0A%5BYour%20Name%5D">rakshithraghavendra.rr2006@gmail.com</a>
+                        </span>
+                        <span class="meta-sep">|</span>
+                        <span class="resume-contact-item">
+                            <svg class="contact-icon" viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                            <a href="https://www.github.com/WhiteDevil-06/" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        </span>
+                        <span class="meta-sep">|</span>
+                        <span class="resume-contact-item">
+                            <svg class="contact-icon" viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                            <a href="https://www.linkedin.com/in/rakshith-raghavendra-441b92315/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                        </span>
+                    </div>
+                </header>
+
+                <!-- Profile Summary Section -->
+                <section class="resume-section reveal-element" data-reveal="stagger">
+                    <h2 class="resume-section-title"><span class="section-num-tag">[01 //</span> PROFILE SUMMARY]</h2>
+                    <div class="resume-summary-box">
+                        <p class="manifesto-paragraph" style="font-size: 1rem; color: var(--text-primary); font-family: var(--font-mono);">
+                            CSE–AI/ML undergraduate (Currently in Semester 5) with hands-on experience in AI/ML, Computer Vision, cybersecurity, robotics, and web development. Experienced in building practical AI and software systems, with a focus on solving real-world problems.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Education Section -->
+                <section class="resume-section reveal-element" data-reveal="stagger">
+                    <h2 class="resume-section-title"><span class="section-num-tag">[02 //</span> EDUCATION]</h2>
+                    
+                    <div class="resume-edu-card mb-3" style="margin-bottom: 1rem;">
+                        <div class="edu-header">
+                            <span class="edu-school">R V College of Engineering</span>
+                            <span class="mono-label">Bengaluru, India</span>
+                        </div>
+                        <div class="edu-header" style="margin-top: 4px;">
+                            <span class="edu-degree">B.E. Computer Science & Engineering (Artificial Intelligence & Machine Learning) — Semester 5</span>
+                            <span class="mono-accent">Expected 2028</span>
+                        </div>
+                        <div style="margin-top: 8px; display: flex; gap: 10px; align-items: center;">
+                            <span class="cgpa-highlight">CGPA: 9.08 / 10 (Sem 1: 9.40 | Sem 2: 9.28 | Sem 3: 9.18 | Sem 4: 9.08)</span>
+                        </div>
+                    </div>
+
+                    <div class="resume-edu-card">
+                        <div class="edu-header">
+                            <span class="edu-school">Alva's College</span>
+                            <span class="mono-label">Moodabidri, India</span>
+                        </div>
+                        <div class="edu-degree" style="margin-top: 4px;">Pre-University Education</div>
+                    </div>
+                </section>
+
+                <!-- Technical Skills Section -->
+                <section class="resume-section reveal-element" data-reveal="stagger">
+                    <h2 class="resume-section-title"><span class="section-num-tag">[03 //</span> TECHNICAL SKILLS]</h2>
+                    
+                    <div class="capabilities-grid" style="grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+                        <div class="capability-card" style="padding: 1.2rem;">
+                            <h3 class="cap-title" style="font-size: 1rem; font-family: var(--font-mono);">PROGRAMMING & AI/ML</h3>
+                            <div class="project-tech-list">
+                                <span class="tech-tag">C (Intermediate)</span>
+                                <span class="tech-tag">Python (Intermediate)</span>
+                                <span class="tech-tag">Machine Learning</span>
+                                <span class="tech-tag">Computer Vision</span>
+                                <span class="tech-tag">CNNs</span>
+                                <span class="tech-tag">TensorFlow</span>
+                                <span class="tech-tag">Scikit-learn</span>
+                            </div>
+                        </div>
+
+                        <div class="capability-card" style="padding: 1.2rem;">
+                            <h3 class="cap-title" style="font-size: 1rem; font-family: var(--font-mono);">WEB, HARDWARE & TOOLS</h3>
+                            <div class="project-tech-list">
+                                <span class="tech-tag">MERN STACK</span>
+                                <span class="tech-tag">Flask</span>
+                                <span class="tech-tag">REST APIs</span>
+                                <span class="tech-tag">ESP32</span>
+                                <span class="tech-tag">Arduino</span>
+                                <span class="tech-tag">Git & GitHub</span>
+                                <span class="tech-tag">Google Colab</span>
+                                <span class="tech-tag">Jupyter Notebook</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Academic Projects Section -->
+                <section class="resume-section reveal-element" data-reveal="stagger">
+                    <h2 class="resume-section-title"><span class="section-num-tag">[04 //</span> ACADEMIC PROJECTS]</h2>
+
+                    <!-- Project 1: AgroSort AI -->
+                    <article class="resume-project-item">
+                        <div class="resume-project-header">
+                            <h3 class="resume-project-title">AgroSort AI - AI Robotic Fruit Sorting System</h3>
+                            <div class="project-tech-list">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">TensorFlow</span>
+                                <span class="tech-tag">OpenCV</span>
+                                <span class="tech-tag">Flask</span>
+                                <span class="tech-tag">ESP32</span>
+                                <span class="tech-tag">IoT</span>
+                            </div>
+                        </div>
+                        <ul class="resume-bullet-list">
+                            <li>Developed an AI-powered fruit-sorting system integrating <strong>CNN-based quality classification</strong> with a 4-DOF ESP32-controlled robotic arm.</li>
+                            <li>Implemented computer-vision processing using <strong>OpenCV</strong> and integrated the AI inference pipeline with a Flask backend.</li>
+                            <li>Developed web-based robotic control with <strong>virtual joystick, keyboard controls, and Teach & Repeat functionality</strong> for manual operation.</li>
+                            <li>Integrated ESP32, servo motors, Wi-Fi/HTTP communication, and Flask APIs to bridge AI predictions with physical robotic actuation.</li>
+                            <li>Designed an event-driven sorting workflow where the conveyor pauses for image capture and classification before automatically sorting the detected fruit.</li>
+                            <li>Developed the system architecture combining AI inference, web dashboard, embedded control, database logging, and robotic actuation.</li>
+                        </ul>
+                    </article>
+
+                    <!-- Project 2: Sentinel SAST Engine -->
+                    <article class="resume-project-item">
+                        <div class="resume-project-header">
+                            <h3 class="resume-project-title">Sentinel: AI-Powered Python Vulnerability Detection Engine</h3>
+                            <div class="project-tech-list">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Scikit-learn</span>
+                                <span class="tech-tag">Flask</span>
+                                <span class="tech-tag">TF-IDF</span>
+                                <span class="tech-tag">CVEFixes v1.0.7</span>
+                                <span class="tech-tag">SAST</span>
+                            </div>
+                        </div>
+                        <ul class="resume-bullet-list">
+                            <li>Built an AI-powered Static Application Security Testing (SAST) system to detect potentially vulnerable Python methods without executing source code.</li>
+                            <li>Trained and evaluated <strong>Logistic Regression models</strong> using word-level TF-IDF features extracted from real-world vulnerable and patched code from the CVEFixes v1.0.7 dataset.</li>
+                            <li>Engineered security features combining <strong>NLOC, token count, cyclomatic complexity, nesting depth, and vulnerability-specific heuristics</strong>.</li>
+                            <li>Integrated handcrafted security guardrails for patterns involving <code>eval()</code>, <code>exec()</code>, command execution, SQL queries, and dynamic code execution.</li>
+                            <li>Developed a Flask-based web application supporting Python file and GitHub repository scanning, vulnerability classification, confidence scoring, and CWE mapping.</li>
+                            <li>Implemented data preprocessing, model training, evaluation, and testing workflows using Pandas, NumPy, Scikit-learn, Pytest, Git, and GitHub.</li>
+                        </ul>
+                    </article>
+
+                    <!-- Project 3: AI CV Object Counter -->
+                    <article class="resume-project-item">
+                        <div class="resume-project-header">
+                            <h3 class="resume-project-title">AI Computer Vision Object Counter - Logistics</h3>
+                            <div class="project-tech-list">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Machine Learning</span>
+                                <span class="tech-tag">Computer Vision</span>
+                            </div>
+                        </div>
+                        <p class="manifesto-paragraph" style="font-size: 0.9rem; font-family: var(--font-mono);">
+                            Automated real-time inventory tracking and object counting system using OpenCV vision heuristics and centroid tracking across logistics streams.
+                        </p>
+                    </article>
+
+                    <!-- Project 4: CrediFlow -->
+                    <article class="resume-project-item">
+                        <div class="resume-project-header">
+                            <h3 class="resume-project-title">CrediFlow - Credit Tracking Application</h3>
+                            <div class="project-tech-list">
+                                <span class="tech-tag">Web Development</span>
+                                <span class="tech-tag">Financial Data Management</span>
+                            </div>
+                        </div>
+                        <p class="manifesto-paragraph" style="font-size: 0.9rem; font-family: var(--font-mono);">
+                            Financial ledger management web application for monitoring credit balances, payment timelines, and automated settlement tracking.
+                        </p>
+                    </article>
+                </section>
+
+                <!-- Certifications Section -->
+                <section class="resume-section reveal-element" data-reveal="stagger">
+                    <h2 class="resume-section-title"><span class="section-num-tag">[05 //</span> CERTIFICATIONS]</h2>
+                    
+                    <div class="capabilities-grid" style="grid-template-columns: repeat(3, 1fr); gap: 1rem;">
+                        <div class="resume-edu-card">
+                            <span class="edu-school" style="font-size: 0.95rem;">Unlox Edge Certification - Web Development</span>
+                            <span class="mono-label">Unlox × Outpro India | Feb 2026</span>
+                        </div>
+
+                        <div class="resume-edu-card">
+                            <span class="edu-school" style="font-size: 0.95rem;">Python - Certificate of Completion</span>
+                            <span class="mono-label">MIMO | Apr 2026</span>
+                        </div>
+
+                        <div class="resume-edu-card">
+                            <span class="edu-school" style="font-size: 0.95rem;">AI Workshop - National Space Day 2026</span>
+                            <span class="mono-label">Bharat Space Education Research Centre (BSERC) | Aug 2026</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Extra-Curricular Activities Section -->
+                <section class="resume-section reveal-element" data-reveal="stagger">
+                    <h2 class="resume-section-title"><span class="section-num-tag">[06 //</span> EXTRA-CURRICULAR & PUBLICATIONS]</h2>
+                    
+                    <div class="resume-project-item">
+                        <div class="resume-project-header">
+                            <h3 class="resume-project-title">National Service Scheme (NSS), RVCE | Volunteer</h3>
+                            <span class="mono-label">2025–26</span>
+                        </div>
+                        <ul class="resume-bullet-list">
+                            <li>Participated in community service, environmental sustainability, and cyber-awareness initiatives.</li>
+                            <li>Collaborated in student-led activities promoting teamwork, civic responsibility, and community engagement.</li>
+                        </ul>
+                    </div>
+
+                    <div class="resume-project-item">
+                        <div class="resume-project-header">
+                            <h3 class="resume-project-title">Author & Screenwriter</h3>
+                            <span class="mono-label">PUBLISHED AUTHOR</span>
+                        </div>
+                        <ul class="resume-bullet-list">
+                            <li>Published <a href="https://amzn.in/d/00oqmYEr" target="_blank" rel="noopener noreferrer" class="book-link"><em>Quantum Shadows</em> ↗</a> and currently developing an original feature-film screenplay, with experience in storytelling, character development, and narrative design.</li>
+                        </ul>
+                    </div>
+                </section>
+            </article>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-col-left">
+                <div class="footer-brand">RR / RESUME ARCHIVE</div>
+                <div class="footer-motto mono-label">RVCE CSE-AI/ML · CGPA 9.08/10 (SEM 5)</div>
+            </div>
+
+            <div class="footer-col-center">
+                <div class="live-clock-box">
+                    <span class="clock-icon">●</span>
+                    <span class="mono-label">SYSTEM CLOCK:</span>
+                    <span id="live-clock" class="mono-accent font-bold">00:00:00:000 IST</span>
+                </div>
+            </div>
+
+            <div class="footer-col-right">
+                <div class="footer-copy mono-label">
+                    © 2026 <span class="text-accent">R</span>AKSHITH <span class="text-accent">R</span>AGHAVENDRA. ALL RIGHTS RESERVED.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Engine -->
+    <script src="js/script.js"></script>
+</body>
+</html>

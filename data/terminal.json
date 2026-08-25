@@ -1,0 +1,25 @@
+{
+  "prompt": "RR@LAB:~$",
+  "initialCommand": "cat README.md",
+  "typingSpeedMs": 45,
+  "commandPauseMs": 700,
+  "lineDelayMs": 220,
+  "sections": [
+    {
+      "title": "/started",
+      "lines": ["hardware"]
+    },
+    {
+      "title": "/evolved",
+      "lines": ["AI → systems → robotics → security"]
+    },
+    {
+      "title": "/learned",
+      "lines": ["build → break → debug → rebuild"]
+    },
+    {
+      "title": "/current",
+      "lines": ["still building."]
+    }
+  ]
+}

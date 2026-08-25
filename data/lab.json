@@ -1,0 +1,54 @@
+[
+  {
+    "id": "exp-001",
+    "title": "Sentinel SAST CVEFixes Dataset Feature Ingestion",
+    "project": "sentinel-sast",
+    "status": "completed",
+    "statusLabel": "STATUS / COMPLETED",
+    "date": "AUG 2026",
+    "summary": "Extracted NLOC, cyclomatic complexity, AST nesting depth, and TF-IDF features from CVEFixes v1.0.7 dataset for Python vulnerability classification model.",
+    "experiment": "Automated AST parsing pipeline across 10,000+ vulnerable and patched Python functions.",
+    "observation": "Structural metrics alone reduced false positive rate by 34% compared to pure TF-IDF statistical models.",
+    "result": "Trained calibrated Logistic Regression model with security guardrails.",
+    "lesson": "Fusing structural AST features with statistical text representations creates significantly more robust static analysis tools."
+  },
+  {
+    "id": "exp-002",
+    "title": "AgroSort AI Teach & Repeat Kinematics Loop",
+    "project": "agrosort-ai",
+    "status": "working",
+    "statusLabel": "STATUS / WORKING",
+    "date": "JUL 2026",
+    "summary": "Integrated virtual joystick web dashboard with ESP32 FreeRTOS tasks for 4-DOF robotic arm trajectory recording and playback.",
+    "experiment": "Tested low-latency HTTP servo motor command loops over local ESP32 Wi-Fi Access Point.",
+    "observation": "Separating PWM generation onto ESP32 Core 1 and HTTP parsing onto Core 0 eliminated motor stutter.",
+    "result": "Achieved smooth multi-servo position recording and repeat execution.",
+    "lesson": "Embedded dual-core task isolation is critical when combining real-time hardware actuation with web communication."
+  },
+  {
+    "id": "exp-003",
+    "title": "FBG Sensor Wavelength Shift Baseline Validation",
+    "project": "fbg-sensor-pinn",
+    "status": "iterating",
+    "statusLabel": "STATUS / ITERATING",
+    "date": "JUN 2026",
+    "summary": "Ran classical statistical baseline calculations on experimental strain and temperature Bragg wavelength shift data.",
+    "experiment": "Evaluated linear regression and multi-variable polynomial baseline models on experimental FBG sensor runs.",
+    "observation": "Established baseline accuracy metrics: MAE 0.38 pm and RMSE 0.43 pm.",
+    "result": "Constructed standardized experimental benchmark prior to physics-informed loss integration.",
+    "lesson": "A deep learning model must always be evaluated against empirical classical baselines before claiming superiority."
+  },
+  {
+    "id": "exp-004",
+    "title": "Gravitational Battery Multi-Load Output Mapping",
+    "project": "gravitational-battery",
+    "status": "completed",
+    "statusLabel": "STATUS / COMPLETED",
+    "date": "MAY 2024",
+    "summary": "Measured electromechanical energy recovery across 250g, 500g, 750g, and 1000g mass descent profiles.",
+    "experiment": "Mapped dynamo output voltage curves against descent velocity and mass elevation height.",
+    "observation": "Descent velocity regulation via stepper motor resistance prevented output spike damage.",
+    "result": "Documented electromechanical efficiency loss factors in mechanical energy conversion.",
+    "lesson": "Physical mechanical tolerances and motor back-EMF dictate practical energy recovery limits."
+  }
+]

@@ -1,0 +1,29 @@
+{
+  "name": "RAKSHITH RAGHAVENDRA",
+  "tagline": "Most of my work starts with a question: can I actually build it?",
+  "leadNarrative": "I build things that move from idea to system — through code, hardware, and machine learning. CSE–AI/ML @ RVCE. Author of Quantum Shadows ↗.",
+  "bookUrl": "https://www.amazon.in/dp/B0DNBKW61V",
+  "bookTitle": "Quantum Shadows",
+  "cgpa": {
+    "value": 9.08,
+    "max": 10,
+    "label": "CGPA / 10",
+    "institution": "R V COLLEGE OF ENGINEERING",
+    "status": "SEMESTER 5 IN PROGRESS"
+  },
+  "semesters": [
+    { "name": "SEM 1", "gpa": 9.40, "status": "completed" },
+    { "name": "SEM 2", "gpa": 9.28, "status": "completed" },
+    { "name": "SEM 3", "gpa": 9.18, "status": "completed" },
+    { "name": "SEM 4", "gpa": 9.08, "status": "completed" },
+    { "name": "SEM 5", "gpa": 9.08, "status": "in_progress" }
+  ],
+  "bio": "Undergraduate engineering student at R V College of Engineering (RVCE), Bengaluru, specializing in Computer Science and Engineering (AI/ML). Focused on building real-world cyber-physical systems, static security analysis tools, computer vision pipelines, and embedded hardware.",
+  "metadata": [
+    { "label": "INSTITUTION", "val": "R V College of Engineering (RVCE)" },
+    { "label": "DEGREE", "val": "B.E. Computer Science & Engineering (AI/ML)" },
+    { "label": "TIMELINE", "val": "2024 — 2028 (Expected Graduation)" },
+    { "label": "LOCATION", "val": "Bengaluru, Karnataka, India" },
+    { "label": "PUBLICATION", "val": "Author of Quantum Shadows (Amazon)" }
+  ]
+}

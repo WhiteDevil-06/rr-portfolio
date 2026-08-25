@@ -1,0 +1,11 @@
+[
+  {
+    "id": "build-001",
+    "title": "AGROSORT AI V2 — EVENT-DRIVEN HARDWARE REFACTOR",
+    "status": "active_development",
+    "statusLabel": "HARDWARE + CV // ACTIVE",
+    "phase": "Event-Driven Conveyor Integration & Servo Smoothing",
+    "description": "Refactoring the ESP32 dual-core FreeRTOS task architecture to synchronize optical conveyor triggers with Flask CNN inference endpoints.",
+    "projectRef": "agrosort-ai"
+  }
+]

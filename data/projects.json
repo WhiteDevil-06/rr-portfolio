@@ -1,0 +1,482 @@
+[
+  {
+    "id": "agrosort-ai",
+    "title": "AGROSORT AI",
+    "shortDescription": "AI-assisted robotic fruit sorting system combining computer vision, web control, ESP32 communication, and physical robotic manipulation.",
+    "categories": ["AI / ML", "COMPUTER VISION", "ROBOTICS", "HARDWARE / IOT"],
+    "status": "active_development",
+    "statusLabel": "HARDWARE + CV // ACTIVE",
+    "image": {
+      "src": "assets/images/agrosort-ai.svg",
+      "alt": "AgroSort AI Robotic Fruit Sorting System",
+      "position": "center"
+    },
+    "year": "2026",
+    "role": "Lead Robotics & AI Systems Engineer",
+    "technologies": ["ESP32", "4-DOF ARM", "Python", "TensorFlow", "OpenCV", "Flask", "HTTP", "WebSockets", "FreeRTOS"],
+    "highlight": "Designed event-driven sorting workflow solving duplicate-frame counts; built web joystick, position saving, and Teach & Repeat replay.",
+    "result": "Fully operational physical robotic arm control with active computer vision pipeline integration.",
+    "links": {
+      "github": "https://www.github.com/WhiteDevil-06/",
+      "linkedin": "https://www.linkedin.com/in/rakshith-raghavendra-441b92315/"
+    },
+    "caseStudy": {
+      "overview": "AgroSort AI began with a physical robotic foundation. The 4-DOF ESP32 robotic arm was made controllable via a custom web interface featuring virtual joystick controls, keyboard shortcuts, position logging, and a Teach & Repeat sequence. The system was then evolved to incorporate automated computer vision classification.",
+      "problem": "A stationary fruit under the camera view triggered duplicate CNN classifications on consecutive video frames, causing redundant robotic pick attempts.",
+      "objective": "Engineer an event-driven physical sorting automation loop where the conveyor pauses during camera capture and classification, enabling precise single-attempt robotic actuation.",
+      "myContribution": "Built physical arm kinematics logic, developed Flask API bridge between vision models and ESP32 HTTP endpoints, created web dashboard with Teach & Repeat, and solved the duplicate-frame counting issue.",
+      "system": [
+        "Conveyor Motion → Optical Trigger → Conveyor Stop → Image Capture → CNN Inference (Flask) → Sorting Decision → ESP32 HTTP Command → Robotic Arm Actuation → Conveyor Resumes"
+      ],
+      "development": [
+        "Built ESP32 Wi-Fi Access Point mode firmware for low-latency web dashboard interaction.",
+        "Integrated dual-core FreeRTOS tasks to separate servo PWM generation from HTTP packet parsing."
+      ],
+      "challenges": [
+        "PWM motor noise causing Wi-Fi dropouts on ESP32 under load",
+        "Duplicate frame inferences on stationary items"
+      ],
+      "decisions": [
+        "Designed event-driven start-stop conveyor control loop to guarantee exactly 1 classification per item",
+        "Added decoupling capacitors and separate power rails for logic vs motors"
+      ],
+      "results": [
+        "Achieved reliable remote web control and Teach & Repeat execution",
+        "Eliminated 100% of duplicate-frame classification errors using state-machine conveyor gating"
+      ],
+      "currentState": "Active Development / Continuation.",
+      "lessons": "A progressive robotics system that evolved from embedded robotic control into AI-assisted physical automation. Bridging physical hardware with web AI requires low-latency event-driven API architecture."
+    }
+  },
+  {
+    "id": "sentinel-sast",
+    "title": "SENTINEL SAST ENGINE",
+    "shortDescription": "AI-powered Static Application Security Testing (SAST) system detecting vulnerable Python methods without code execution.",
+    "categories": ["CYBERSECURITY", "AI / ML", "STATIC ANALYSIS", "SOFTWARE ENGINEERING"],
+    "status": "completed",
+    "statusLabel": "CYBERSECURITY + AI // VERIFIED",
+    "image": {
+      "src": "assets/images/hardwarelab-os.svg",
+      "alt": "Sentinel SAST Security Analysis Interface",
+      "position": "center"
+    },
+    "year": "2026",
+    "role": "ML & Security Systems Developer",
+    "technologies": ["Python", "Scikit-learn", "Flask", "TF-IDF", "CVEFixes v1.0.7", "AST", "Pytest"],
+    "highlight": "Engineered feature fusion combining TF-IDF, NLOC, cyclomatic complexity, nesting depth, and security guardrails on CVEFixes v1.0.7.",
+    "result": "Trained calibrated Logistic Regression model detecting vulnerabilities across uploaded files, pasted code, and GitHub repos.",
+    "links": {
+      "github": "https://www.github.com/WhiteDevil-06/",
+      "linkedin": "https://www.linkedin.com/in/rakshith-raghavendra-441b92315/"
+    },
+    "caseStudy": {
+      "overview": "Sentinel is an AI-assisted static analysis security engine built to analyze Python source code for potential security vulnerabilities without running the code. It scans pasted code, uploaded files, and entire GitHub repositories.",
+      "problem": "High false-positive rates when using generic machine learning classifiers on complex nested dynamic execution blocks (e.g. eval(), exec(), raw SQL queries).",
+      "objective": "Build a multi-layered SAST engine combining statistical code representations (TF-IDF) with structural AST complexity metrics and static security guardrails.",
+      "myContribution": "Engineered AST complexity metrics (NLOC, cyclomatic complexity, token count, nesting depth), trained Logistic Regression classifier on CVEFixes v1.0.7, added security guardrails, and developed Flask scanning endpoints.",
+      "system": [
+        "Python Source → AST Preprocessing → TF-IDF + Structural Metrics + Security Heuristics → Feature Fusion → Logistic Regression → Calibrated Threshold → Security Guardrail → Classification & Recommendation"
+      ],
+      "development": [
+        "Extracted vulnerability data from CVEFixes v1.0.7 dataset.",
+        "Constructed custom AST visitor classes in Python to extract structural metrics.",
+        "Integrated CWE mapping rules for detected security smells."
+      ],
+      "challenges": [
+        "Statistical TF-IDF models alone failed on structural pattern changes",
+        "High false positive rates on dynamic code blocks"
+      ],
+      "decisions": [
+        "Fused structural static analysis metrics (NLOC, complexity, nesting) with TF-IDF vectors",
+        "Applied deterministic security guardrails to enforce verification on high-risk functions"
+      ],
+      "results": [
+        "Demonstrated significant reduction in false positives compared to pure TF-IDF baseline",
+        "Scanned multi-file GitHub repositories with automated CWE categorization"
+      ],
+      "currentState": "Academic implementation completed.",
+      "lessons": "ML prediction alone was not enough. The system needed engineering guardrails around the model. Demonstrates model + software + security reasoning."
+    }
+  },
+  {
+    "id": "fbg-sensor-pinn",
+    "title": "FBG SENSOR + PINN RESEARCH",
+    "shortDescription": "Physics-informed machine-learning investigation of Fiber Bragg Grating wavelength shifts under strain and temperature.",
+    "categories": ["AI / ML", "PHYSICS-INFORMED ML", "SENSOR SYSTEMS", "RESEARCH"],
+    "status": "active_development",
+    "statusLabel": "RESEARCH // ACTIVE",
+    "image": {
+      "src": "assets/images/embedded-lab.svg",
+      "alt": "FBG Sensor Physics Informed Machine Learning Setup",
+      "position": "center"
+    },
+    "year": "2026",
+    "role": "AI / Physics ML Researcher",
+    "technologies": ["Python", "PyTorch", "NumPy", "Pandas", "Scikit-learn", "FBG Sensors", "PINN"],
+    "highlight": "Analyzed experimental strain/temperature wavelength shifts; established baseline metrics MAE 0.38 pm & RMSE 0.43 pm.",
+    "result": "Formulated physics loss constraints embedding thermo-optic equations into neural network training.",
+    "links": {
+      "github": "https://www.github.com/WhiteDevil-06/"
+    },
+    "caseStudy": {
+      "overview": "A physics-informed neural network (PINN) research project investigating Fiber Bragg Grating (FBG) optical sensor wavelength shifts (ΔλB) under varying physical strain and thermal conditions.",
+      "problem": "Classical optical models struggle to decouple simultaneous thermal and mechanical strain shifts without complex physical calibration.",
+      "objective": "Integrate physical governing equations directly into neural network loss functions to achieve high-precision strain-temperature decoupling.",
+      "myContribution": "Cleaned and processed experimental sensor data, built classical baseline evaluation models, and designed the physics-informed loss formulation in PyTorch.",
+      "system": [
+        "FBG Sensor Data → Data Cleaning → Wavelength Shift Calculation → Classical Baseline → Physics-Informed Loss Formulation → PyTorch Training → Evaluation"
+      ],
+      "development": [
+        "Evaluated experimental measurements under strain-only, temperature-only, and combined conditions.",
+        "Formulated physics loss terms penalizing physical equation violations during backpropagation."
+      ],
+      "challenges": [
+        "Inconsistent wavelength column naming across sensor runs",
+        "Unit conversions between microstrain and picometer shifts"
+      ],
+      "decisions": [
+        "Built standardized data cleaning pipeline before model input",
+        "Decoupled pure MLP baseline from PINN physics loss formulation for empirical comparison"
+      ],
+      "results": [
+        "Verified Classical Baseline: MAE 0.38 pm, RMSE 0.43 pm",
+        "Documented exact empirical baseline metrics prior to PINN loss integration"
+      ],
+      "currentState": "Active Development.",
+      "lessons": "A model is only as meaningful as its data semantics, physical formulation, validation, and connection to real measurements."
+    }
+  },
+  {
+    "id": "huffman-shannon-fano",
+    "title": "HUFFMAN VS SHANNON-FANO ARENA",
+    "shortDescription": "Interactive web platform for visualizing and benchmarking two classical lossless data compression algorithms.",
+    "categories": ["ALGORITHMS", "DATA COMPRESSION", "WEB DEVELOPMENT"],
+    "status": "completed",
+    "statusLabel": "DAA + WEB // COMPLETED",
+    "image": {
+      "src": "assets/images/hardwarelab-os.svg",
+      "alt": "Huffman vs Shannon-Fano Algorithm Arena Visualizer",
+      "position": "center"
+    },
+    "year": "2026",
+    "role": "Algorithm & Frontend Developer",
+    "technologies": ["HTML5", "CSS3", "Vanilla JavaScript", "DOM API", "Canvas", "Performance API"],
+    "highlight": "Built interactive tree visualizers, code dictionary generators, and microsecond performance benchmarking arena.",
+    "result": "Created interactive educational web platform demonstrating greedy optimal coding vs top-down recursive partitioning.",
+    "links": {
+      "github": "https://www.github.com/WhiteDevil-06/"
+    },
+    "caseStudy": {
+      "overview": "Developed an interactive web-based algorithm arena comparing Huffman coding (greedy, bottom-up priority queue) against Shannon-Fano coding (top-down recursive partitioning).",
+      "problem": "Abstract algorithm concepts are difficult to analyze visually without real-time tree construction and empirical compression ratio comparisons.",
+      "objective": "Build a zero-dependency web visualizer rendering prefix tree generation, frequency tables, generated codebooks, and microsecond execution timing.",
+      "myContribution": "Implemented Huffman min-heap and Shannon-Fano recursive algorithms in pure JavaScript, built dynamic tree rendering logic, and created benchmark suite.",
+      "system": [
+        "User Text Input → Character Frequency Analysis → Tree Construction → Prefix Code Generation → Compression Ratio & Microsecond Benchmarks → Interactive DOM Tree Render"
+      ],
+      "development": [
+        "Used performance.now() API for microsecond timing comparison.",
+        "Built responsive CSS tree rendering logic mapping parent-child nodes dynamically."
+      ],
+      "challenges": [
+        "Handling edge cases like single-character input strings",
+        "DOM rendering bottlenecks on large text inputs"
+      ],
+      "decisions": [
+        "Implemented greedy Min-Heap for optimal Huffman tree generation",
+        "Used Vanilla JS without heavy external visualization libraries"
+      ],
+      "results": [
+        "Successfully benchmarked compression efficiency across varying text entropy levels",
+        "Demonstrated optimal prefix property of Huffman over Shannon-Fano"
+      ],
+      "currentState": "Completed / Presented.",
+      "lessons": "Two algorithms can solve the same problem while making fundamentally different design decisions, and those decisions affect solution quality."
+    }
+  },
+  {
+    "id": "cv-object-counter",
+    "title": "AI VISION BOX COUNTER",
+    "shortDescription": "Custom YOLOv8 computer-vision system for detecting and counting incoming cardboard cartons and connecting counts to logistics inventory workflows.",
+    "categories": ["COMPUTER VISION", "AI / ML", "LOGISTICS AUTOMATION"],
+    "status": "completed",
+    "statusLabel": "LOGISTICS + CV // VERIFIED",
+    "image": {
+      "src": "assets/images/fiber-grating.svg",
+      "alt": "AI Vision Box Counter System Interface",
+      "position": "center"
+    },
+    "year": "2025",
+    "role": "Computer Vision Engineer",
+    "technologies": ["Python", "YOLOv8", "OpenCV", "Centroid Tracking", "Streamlit", "Logistics Pipeline"],
+    "highlight": "Trained custom cardboard-box YOLOv8 detector achieving 0.917 Precision and 0.895 mAP@0.5 over 20 epochs.",
+    "result": "Built automated carton counting and SKU mapping Streamlit dashboard eliminating manual inventory audit errors.",
+    "links": {
+      "github": "https://www.github.com/WhiteDevil-06/"
+    },
+    "caseStudy": {
+      "overview": "Developed a domain-specific computer vision system for tracking and counting cardboard cartons on logistics conveyors. The system evolved from a generic object counter into a custom-trained YOLOv8 carton detection pipeline.",
+      "problem": "Generic pre-trained YOLO object classes failed on cardboard cartons, while occlusion and overlapping items caused ID swapping and double counting in dense conveyor streams.",
+      "objective": "Train a domain-specific vision model and engineer robust centroid tracking across counting zones for accurate automated inventory logging.",
+      "myContribution": "Curated and annotated custom carton dataset, trained YOLOv8 model for 20 epochs, implemented centroid tracking algorithms, and built Streamlit inventory dashboard.",
+      "system": [
+        "Conveyor Camera → Custom YOLOv8 → Centroid Tracking → ROI Counting Zone → SKU Mapping → Batch Inventory Log → Streamlit Dashboard"
+      ],
+      "development": [
+        "Evaluated generic object tracking vs custom bounding-box detectors.",
+        "Implemented Region of Interest (ROI) line-crossing vector math to prevent double-counting."
+      ],
+      "challenges": [
+        "CPU inference latency slowing down high-speed video processing",
+        "ID swapping when boxes passed close together"
+      ],
+      "decisions": [
+        "Trained custom YOLOv8 model specifically on cardboard cartons rather than generic COCO classes",
+        "Tuned centroid tracking distance thresholds to maintain stable box IDs"
+      ],
+      "results": [
+        "Achieved Precision: 0.917, mAP@0.5: 0.895 across 20 training epochs",
+        "Validated zero double-counting on continuous test feeds"
+      ],
+      "currentState": "Completed.",
+      "lessons": "Solve the domain problem first; then build the tracking, counting, business logic, and UI around it. Demonstrates practical iterative vision engineering."
+    }
+  },
+  {
+    "id": "erdos-dsa",
+    "title": "ERDOS HEALTHCARE SIMULATION",
+    "shortDescription": "DSA-based emergency healthcare workflow simulation for patient triage, resource management, and doctor allocation.",
+    "categories": ["DATA STRUCTURES", "ALGORITHMS", "PYTHON"],
+    "status": "active_development",
+    "statusLabel": "DSA // ACTIVE",
+    "image": {
+      "src": "assets/images/fiber-grating.svg",
+      "alt": "ERDOS DSA Healthcare Workflow Simulation",
+      "position": "center"
+    },
+    "year": "2025",
+    "role": "Software & DSA Engineer",
+    "technologies": ["Python", "Custom Data Structures", "Linked List", "Priority Queue", "Min Heap", "Hash Table", "Git"],
+    "highlight": "Engineered problem-driven DSA architecture mapping patient triage to Priority Queues and hospital beds to Hash Tables.",
+    "result": "Implemented core PatientNode, PatientList, insertion, search, and priority triage modules.",
+    "links": {
+      "github": "https://www.github.com/WhiteDevil-06/"
+    },
+    "caseStudy": {
+      "overview": "ERDOS is a DSA-driven emergency healthcare simulation system designed to manage patient triage, bed allocation, and doctor scheduling using explicit custom data structures.",
+      "problem": "Generic sorting visualizers lacked real-world utility; academic requirements demanded multiple distinct data structures solving genuine domain problems.",
+      "objective": "Design an emergency department workflow where each data structure handles a specific operational bottleneck.",
+      "myContribution": "Designed domain problem mapping, implemented custom PatientNode linked lists, priority triage queues, and modular Python package structure.",
+      "system": [
+        "Patient Arrival → Symptom Processing → Priority Queue Triage → Bed Allocation (Hash Table) → Doctor Scheduling → Discharge → Telemetry"
+      ],
+      "development": [
+        "Evolved project from basic sorting concepts into emergency hospital simulation.",
+        "Built modular Python classes for custom data structure implementations."
+      ],
+      "challenges": [
+        "Designing explicit roles for 6+ distinct data structures without artificial bloat"
+      ],
+      "decisions": [
+        "Used Priority Queue (Min-Heap) specifically for emergency severity triage",
+        "Used Linked Lists for chronological patient arrival audit trails"
+      ],
+      "results": [
+        "Implemented PatientNode, PatientList, insertion, deletion, and priority sorting core modules",
+        "Validated unit test suite for queue operations"
+      ],
+      "currentState": "Active Development.",
+      "lessons": "The problem determined the data structures. Didn't force data structures into an arbitrary app; changed the app so each structure had a clear purpose."
+    }
+  },
+  {
+    "id": "toxic-colours-paper",
+    "title": "TOXIC COLOURS BENEATH THE RAINBOW",
+    "shortDescription": "A biosafety and regulatory case study examining synthetic food colours, scientific evidence, regulatory differences, and ethical implications.",
+    "categories": ["BIOSAFETY", "REGULATORY RESEARCH", "ACADEMIC STUDY"],
+    "status": "research",
+    "statusLabel": "RESEARCH // ACADEMIC PAPER",
+    "image": {
+      "src": "assets/images/hardwarelab-os.svg",
+      "alt": "Toxic Colours Case Study Header",
+      "position": "center"
+    },
+    "year": "2025",
+    "role": "Primary Researcher & Author",
+    "technologies": ["Secondary Data Analysis", "Toxicological Research", "Regulatory Policy", "Biosafety Standards", "Academic Writing"],
+    "highlight": "Analyzed international regulatory divergences (India vs EU/US) for synthetic food colorants in commercial confectionery.",
+    "result": "Authored comprehensive biosafety case study examining consumer health risks and natural colorant alternatives.",
+    "links": {
+      "linkedin": "https://www.linkedin.com/in/rakshith-raghavendra-441b92315/"
+    },
+    "caseStudy": {
+      "overview": "An academic research case study examining synthetic food dye regulations, toxicological evidence, and policy differences between Indian standards (FSSAI) and international bodies (EFSA/FDA).",
+      "problem": "Widespread commercial use of synthetic colorants associated with potential health risks, combined with public lack of awareness regarding international regulatory bans.",
+      "objective": "Perform secondary-data analysis evaluating toxicological studies, regulatory discrepancies, and feasible natural colorant substitutes.",
+      "myContribution": "Selected research topic, framed problem, conducted regulatory comparative analysis, and authored research paper draft.",
+      "system": [
+        "Ingredient Label Audit → Identify Synthetic Dye → Toxicological Evidence Search → India vs International Regulatory Comparison → Ethical Analysis → Natural Alternatives Evaluation"
+      ],
+      "development": [
+        "Compared FSSAI permissible limits against European Food Safety Authority (EFSA) warnings."
+      ],
+      "challenges": [
+        "Navigating conflicting industry vs academic toxicological literature"
+      ],
+      "decisions": [
+        "Focused scope on synthetic dyes commonly found in child-targeted confectionery",
+        "Evaluated technical and economic feasibility of plant-based natural pigments"
+      ],
+      "results": [
+        "Completed comprehensive comparative regulatory review paper",
+        "Outlined policy recommendations for food safety labeling"
+      ],
+      "currentState": "Active Revision / Academic Paper.",
+      "lessons": "Evidence-driven research and challenging assumptions through methodical regulatory investigation."
+    }
+  },
+  {
+    "id": "cps-line-follower",
+    "title": "CYBER-PHYSICAL LINE FOLLOWER & OBSTACLE AVOIDER",
+    "shortDescription": "A sensor-driven autonomous 4WD robot combining IR line detection, ultrasonic obstacle sensing, embedded decision logic, and motor actuation.",
+    "categories": ["CYBER-PHYSICAL SYSTEMS", "EMBEDDED SYSTEMS", "ROBOTICS"],
+    "status": "prototype",
+    "statusLabel": "ROBOTICS // PROTOTYPE",
+    "image": {
+      "src": "assets/images/fiber-grating.svg",
+      "alt": "Cyber-Physical System Autonomous Robot",
+      "position": "center"
+    },
+    "year": "2025",
+    "role": "Embedded Systems Engineer",
+    "technologies": ["Arduino UNO", "Embedded C/C++", "L298N", "IR Sensors", "HC-SR04", "Servo Motors", "DC Motors", "PlatformIO"],
+    "highlight": "Integrated 4WD motor actuation with IR array line-tracking and ultrasonic servo scanning logic on Arduino UNO.",
+    "result": "Demonstrated stable autonomous line following and initial obstacle detection.",
+    "links": {
+      "github": "https://www.github.com/WhiteDevil-06/"
+    },
+    "caseStudy": {
+      "overview": "Designed and built an autonomous 4WD mobile robot driven by an Arduino UNO microcontroller. The system combines infrared (IR) line-tracking arrays for navigation with ultrasonic distance sensors mounted on a pan servo for dynamic obstacle detection.",
+      "problem": "Unstable sensor readings, motor direction mismatches during rapid directional shifts, compilation toolchain issues, and power starvation when motors and servos triggered simultaneously.",
+      "objective": "Construct a responsive cyber-physical control loop combining real-time line following with automated obstacle avoidance.",
+      "myContribution": "Assembled hardware chassis, configured PlatformIO embedded compilation toolchain, developed differential motor drive algorithms, and debugged sensor control loops.",
+      "system": [
+        "IR Sensors Array → Arduino UNO → Decision Logic → L298N Motor Driver → DC Motors",
+        "HC-SR04 Ultrasonic → Pan Servo → Distance Threshold Check → Avoidance Manoeuvres"
+      ],
+      "development": [
+        "Built modular PlatformIO firmware structure separating motor control primitives from high-level state machine logic."
+      ],
+      "challenges": [
+        "Compilation failure in PlatformIO environment due to header scope mismatches",
+        "DC motor direction reversal under low battery voltage",
+        "Ultrasonic distance jitter caused by acoustic reflections"
+      ],
+      "decisions": [
+        "Implemented moving-average filter on ultrasonic distance readings to eliminate acoustic noise spikes",
+        "Isolated motor driver power supply from microcontroller logic power"
+      ],
+      "results": [
+        "Achieved continuous autonomous line-following along complex test tracks",
+        "Validated dynamic obstacle detection and automated stop-and-scan sequence"
+      ],
+      "currentState": "Prototype / Partially validated.",
+      "lessons": "A logically correct control system can still fail when power, sensing, and physical integration are not controlled properly."
+    }
+  },
+  {
+    "id": "trip-rural-impact",
+    "title": "TRIP — TECH-ENABLED RURAL IMPACT PLATFORM",
+    "shortDescription": "Farmer-centric agri-supply-chain startup concept developed through field validation, consumer research, and pilot planning.",
+    "categories": ["AGRI-TECH", "SUPPLY CHAIN", "SYSTEM DESIGN", "PRODUCT RESEARCH"],
+    "status": "paused",
+    "statusLabel": "CONCEPT // PAUSED",
+    "image": {
+      "src": "assets/images/agrosort-ai.svg",
+      "alt": "TRIP Rural Impact Platform Concept Architecture",
+      "position": "center"
+    },
+    "year": "2024 - 2026",
+    "role": "Founder & Product Architect",
+    "technologies": ["System Design", "Supply Chain Research", "Field Survey Methodology", "Product Strategy", "Pilot Architecture"],
+    "highlight": "Conducted field validation across 29 farmers in Mulbagal/Kolar & ~180 urban consumers in Bengaluru; mapped 6–11 intermediary markups.",
+    "result": "Designed direct apartment-cluster procurement pilot model eliminating middleman price volatility.",
+    "links": {
+      "linkedin": "https://www.linkedin.com/in/rakshith-raghavendra-441b92315/"
+    },
+    "caseStudy": {
+      "overview": "TRIP (Tech-enabled Rural Impact Platform) is an agri-supply-chain product concept aimed at connecting smallholder farmers directly to urban consumer clusters.",
+      "problem": "Farmer income instability and unpredictable market access caused by 6 to 11 intermediary layers between farmgate and consumer.",
+      "objective": "Conduct empirical field research and design a streamlined direct-to-cluster procurement and logistics model.",
+      "myContribution": "Led field research in Mulbagal/Kolar, interviewed 29 farmers and ~180 consumers, mapped supply-chain markups, and authored pilot strategy.",
+      "system": [
+        "Farmers → Direct Procurement → Micro-Hub Logistics → Apartment Consumer Cluster → Digital Traceability"
+      ],
+      "development": [
+        "Mapped exact supply-chain friction points from farmgate to urban retail."
+      ],
+      "challenges": [
+        "High perishability risks during cold-chain transportation",
+        "Unpredictable daily crop yields"
+      ],
+      "decisions": [
+        "Focused pilot strategy on high-density apartment clusters to consolidate delivery logistics",
+        "Incorporated pre-order demand forecasting to reduce unsold inventory"
+      ],
+      "results": [
+        "Completed field validation with 29 farmers and ~180 urban consumers",
+        "Documented 6-11 intermediary layer markup structure"
+      ],
+      "currentState": "Paused / Concept-stage startup with validated problem.",
+      "lessons": "Demonstrates taking an ambiguous real-world problem -> going into the field -> gathering evidence -> challenging assumptions -> redesigning the system."
+    }
+  },
+  {
+    "id": "gravitational-battery",
+    "title": "GRAVITATIONAL BATTERY",
+    "shortDescription": "A physical energy-storage prototype exploring solar-to-gravitational energy conversion through a lifted mass and controlled electrical recovery.",
+    "categories": ["HARDWARE", "EMBEDDED SYSTEMS", "ENERGY SYSTEMS", "EXPERIMENTAL ENGINEERING"],
+    "status": "archived",
+    "statusLabel": "HARDWARE + ENERGY // LEGACY",
+    "image": {
+      "src": "assets/images/embedded-lab.svg",
+      "alt": "Gravitational Battery Prototype Setup",
+      "position": "center"
+    },
+    "year": "2024 - 2025",
+    "role": "Project Lead / Ideator",
+    "technologies": ["Arduino UNO", "NEMA17", "DRV8825", "DC Dynamo Motors", "20W Solar Panel", "Potentiometer", "Voltage Sensing", "3D-Printed Components"],
+    "highlight": "Built a 1 kg / 0.6 m tower physical gravity energy storage rig with potentiometer position tracking and load testing across 250g–1000g.",
+    "result": "Validated electromechanical lift-descent loop and dynamo generation math under physical mechanical constraints.",
+    "links": {
+      "github": "https://www.github.com/WhiteDevil-06/"
+    },
+    "caseStudy": {
+      "overview": "The project explored solar-to-gravitational energy storage using a lifted 1 kg mass on a 0.6 m tower. Solar input powered a lifting motor to store gravitational potential energy, followed by a controlled descent driving a dynamo generator to power an LED load.",
+      "problem": "Mechanical instability, motor torque limits, output voltage fluctuations, and locking/release mechanism failures under varying physical loads.",
+      "objective": "Design and test a physical solar-to-gravitational energy conversion and electromechanical recovery pipeline.",
+      "myContribution": "Designed the lifting mechanism, integrated motor driver logic, performed potentiometer position calibration, and ran multi-load output analysis.",
+      "system": [
+        "Solar Panel → Electrical Input → Motor/Control → Lift Mass → Gravitational Potential Energy → Controlled Descent → Dynamo → Electrical Output → LED Load"
+      ],
+      "development": [
+        "Iterated from early lifting approach to separate stopper motor, 3D-printed mechanical stoppers, NEMA17 stepper motor precision lifting, and potentiometer-based position tracking."
+      ],
+      "challenges": [
+        "High mechanical friction during descent",
+        "Dynamo voltage fluctuations under changing descent speeds",
+        "Stopper motor release binding under heavy 1kg load"
+      ],
+      "decisions": [
+        "Adopted NEMA17 stepper motor with DRV8825 driver for high-torque precise mass elevation",
+        "Used a multi-stage load testing protocol (250g, 500g, 750g, 1000g) to map dynamo voltage curves"
+      ],
+      "results": [
+        "Successfully demonstrated physical lifting and electrical generation cycle",
+        "Documented exact voltage output curves across 4 distinct mass configurations"
+      ],
+      "currentState": "Retired / Legacy research prototype.",
+      "lessons": "Complete physical engineering loop: code → electronics → motors → sensors → mechanical system → measurement → debugging → iteration. Demonstrates real physical engineering constraints."
+    }
+  }
+]

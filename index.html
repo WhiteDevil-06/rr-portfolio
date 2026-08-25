@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rakshith Raghavendra — Portfolio</title>
+    <meta name="description" content="Engineering portfolio of Rakshith Raghavendra. CSE-AI/ML student at RVCE (CGPA: 9.08/10, Semester 5) building intelligent systems at the intersection of AI/ML, computer vision, cybersecurity, and robotics. Published author of Quantum Shadows.">
+    <meta name="keywords" content="Rakshith Raghavendra, RVCE, AI/ML, Computer Vision, Cybersecurity, ESP32, SAST, AgroSort AI, Sentinel Engine, Quantum Shadows, Portfolio">
+    <meta name="author" content="Rakshith Raghavendra">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Site Favicon / Logo -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Canvas Technical Grid & Coordinate Layer -->
+    <canvas id="grid-canvas"></canvas>
+
+    <!-- Custom Technical Dual Cursor -->
+    <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+
+    <!-- Live Coordinate & Grid Overlay (Desktop Only) -->
+    <div class="grid-hud" aria-hidden="true">
+        <span id="hud-coords">X: 000 | Y: 000</span>
+        <span class="hud-divider">/</span>
+        <span id="hud-status">SYS.STABLE</span>
+    </div>
+
+    <!-- Sticky Global Navigation -->
+    <header class="site-header" id="header">
+        <div class="nav-container">
+            <a href="#hero" class="nav-brand" aria-label="Rakshith Raghavendra Home">
+                <span class="brand-square"></span>
+                <span class="brand-text">RR <span class="brand-sub">/ HOME</span></span>
+            </a>
+
+            <nav class="nav-menu" id="nav-menu" aria-label="Primary Navigation">
+                <ul class="nav-list">
+                    <li><a href="#work" class="nav-link"><span class="nav-num">01</span> WORK</a></li>
+                    <li><a href="#lab" class="nav-link"><span class="nav-num">02</span> LAB</a></li>
+                    <li><a href="#failures" class="nav-link"><span class="nav-num">03</span> DEBUG</a></li>
+                    <li><a href="#capabilities" class="nav-link"><span class="nav-num">04</span> SKILLS</a></li>
+                    <li><a href="#about" class="nav-link"><span class="nav-num">05</span> ABOUT</a></li>
+                    <li><a href="#contact" class="nav-link"><span class="nav-num">06</span> CONTACT</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-right">
+                <a href="resume.html" class="nav-resume-btn">
+                    <span>RESUME ↗</span>
+                </a>
+                <div class="status-badge" title="Current operational status">
+                    <span class="status-dot"></span>
+                    <span class="status-text">AVAILABLE / BUILDING</span>
+                </div>
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
+                    <span class="burger-bar"></span>
+                    <span class="burger-bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay" id="mobile-nav-overlay" aria-hidden="true">
+        <div class="mobile-nav-content">
+            <div class="mobile-nav-header">
+                <span class="brand-text">RR / NAV</span>
+                <button class="mobile-close" id="mobile-close" aria-label="Close menu">&times;</button>
+            </div>
+            <ul class="mobile-nav-list">
+                <li><a href="#work" class="mobile-link">01 / WORK</a></li>
+                <li><a href="#lab" class="mobile-link">02 / THE LAB</a></li>
+                <li><a href="#failures" class="mobile-link">03 / WHAT BROKE</a></li>
+                <li><a href="#capabilities" class="mobile-link">04 / CAPABILITIES</a></li>
+                <li><a href="#about" class="mobile-link">05 / ABOUT</a></li>
+                <li><a href="#contact" class="mobile-link">06 / CONTACT</a></li>
+                <li><a href="resume.html" class="mobile-link" style="color:var(--accent);">07 / RESUME PAGE →</a></li>
+            </ul>
+            <div class="mobile-nav-footer">
+                <span class="mono-label">SYS.STATUS: ONLINE</span>
+                <span class="mono-label">RVCE · CGPA 9.08/10 (SEM 5)</span>
+            </div>
+        </div>
+    </div>
+
+    <main id="main-content">
+        <!-- HERO SECTION -->
+        <section class="hero-section" id="hero">
+            <div class="hero-container container">
+                <div class="hero-layout-grid">
+                    <!-- Left Hero Content (Preserved 100%) -->
+                    <div class="hero-left-content">
+                        <div class="hero-top-strip reveal-element">
+                            <div class="sys-tag">
+                                <span class="sys-dot"></span>
+                                <span class="mono-label">SYSTEM STATUS // ONLINE</span>
+                            </div>
+                        </div>
+
+                        <div class="hero-main-title reveal-element">
+                            <h1 class="hero-name" data-reveal="stagger">
+                                <span class="name-line"><span class="text-accent">R</span>AKSHITH</span>
+                                <span class="name-line"><span class="text-accent">R</span>AGHAVENDRA</span>
+                            </h1>
+                            <div class="hero-accent-line"></div>
+                        </div>
+
+                        <div class="hero-statement-strip reveal-element">
+                            <div class="domain-pills">
+                                <span class="pill">AI / ML</span>
+                                <span class="pill-divider">×</span>
+                                <span class="pill">HARDWARE</span>
+                                <span class="pill-divider">×</span>
+                                <span class="pill">CYBERSECURITY</span>
+                            </div>
+                        </div>
+
+                        <div class="hero-narrative reveal-element">
+                            <p class="lead-text">
+                                Most of my work starts with a question: Can I actually build it?<br>
+                                I build things that move from idea to system — through code, hardware, and machine learning. CSE–AI/ML @ RVCE. Author of <a href="https://amzn.in/d/00oqmYEr" target="_blank" rel="noopener noreferrer" class="book-link"><em>Quantum Shadows</em> ↗</a>.
+                            </p>
+                        </div>
+
+                        <div class="hero-metadata-strip reveal-element">
+                            <span class="meta-item">RVCE '28 · SEMESTER 5 IN PROGRESS (CGPA 9.08)</span>
+                            <span class="meta-sep">/</span>
+                            <span class="meta-item">BENGALURU, INDIA</span>
+                        </div>
+
+                        <div class="hero-cta-group reveal-element">
+                            <a href="#work" class="btn btn-primary magnetic-btn">
+                                <span>EXPLORE PROJECTS</span>
+                                <svg class="btn-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3.33337 8H12.6667M12.6667 8L8.00004 3.33334M12.6667 8L8.00004 12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </a>
+                            <a href="resume.html" class="btn btn-secondary magnetic-btn">
+                                <span>VIEW RESUME PAGE</span>
+                                <svg class="btn-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3.33337 8H12.6667M12.6667 8L8.00004 3.33334M12.6667 8L8.00004 12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right Hero Content: Living Engineering Lab Terminal Visual -->
+                    <div class="hero-right-content reveal-element">
+                        <div class="hero-terminal-window" id="hero-terminal">
+                            <div class="terminal-header">
+                                <div class="terminal-controls">
+                                    <span class="control-dot"></span>
+                                    <span class="control-dot"></span>
+                                    <span class="control-dot"></span>
+                                </div>
+                                <div class="terminal-title">RR@LAB:~</div>
+                            </div>
+                            <div class="terminal-body" id="terminal-body">
+                                <!-- Data-driven typewriter output will render here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-scroll-indicator reveal-element">
+                    <a href="#manifesto" class="scroll-link" aria-label="Scroll to Manifesto">
+                        <span class="mono-label">SCROLL TO EXPLORE</span>
+                        <svg class="scroll-arrow" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 3.33337V12.6667M8 12.6667L12.6667 8.00004M8 12.6667L3.33334 8.00004" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- MANIFESTO / INTRO SECTION -->
+        <section class="manifesto-section section-padding" id="manifesto">
+            <div class="container">
+                <div class="section-label reveal-element">
+                    <span class="mono-accent">01 / PHILOSOPHY</span>
+                    <span class="label-line"></span>
+                </div>
+
+                <div class="manifesto-grid">
+                    <div class="manifesto-left reveal-element">
+                        <h2 class="editorial-statement">
+                            "I build practical AI and software systems to solve real-world problems."
+                        </h2>
+                    </div>
+
+                    <div class="manifesto-right reveal-element">
+                        <p class="manifesto-paragraph">
+                            Engineering is not reading documentation or accumulating abstract theory. It is the practical, hands-on discipline of designing, flashing firmware, routing signals, training ML security classifiers, debugging bottlenecks, and evaluating systems under real-world constraints.
+                        </p>
+                        <p class="manifesto-paragraph">
+                            My work spans computer vision models deployed on edge microcontrollers, Static Application Security Testing (SAST) vulnerability engines, financial tracking applications, robotics, and creative writing. Author of <a href="https://amzn.in/d/00oqmYEr" target="_blank" rel="noopener noreferrer" class="book-link"><em>Quantum Shadows</em> ↗</a>.
+                        </p>
+
+                        <div class="manifesto-quote-card">
+                            <div class="quote-header">
+                                <span class="mono-label">ENGINEERING RULEBOOK</span>
+                            </div>
+                            <div class="quote-body">
+                                <span class="accent-text">BUILD IT.</span>
+                                <span class="accent-text">DEBUG IT.</span>
+                                <span class="accent-text">PROVE IT.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURED PROJECTS SECTION -->
+        <section class="projects-section section-padding" id="work">
+            <div class="container">
+                <div class="section-header reveal-element">
+                    <div class="header-titles">
+                        <span class="mono-accent">02 — PROJECT ARCHIVE</span>
+                        <h2 class="section-title">SELECTED WORK</h2>
+                    </div>
+                    <p class="header-desc">
+                        Academic and engineering projects built across AI/ML, computer vision, static code security analysis, embedded systems, and web applications.
+                    </p>
+                </div>
+
+                <!-- Project Filter System -->
+                <div class="filter-wrapper reveal-element">
+                    <div class="filter-bar" id="project-filters" role="tablist" aria-label="Filter projects by domain">
+                        <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">
+                            <span class="filter-indicator"></span> ALL
+                        </button>
+                        <button class="filter-btn" data-filter="ai-ml" role="tab" aria-selected="false">
+                            <span class="filter-indicator"></span> AI / ML
+                        </button>
+                        <button class="filter-btn" data-filter="hardware" role="tab" aria-selected="false">
+                            <span class="filter-indicator"></span> HARDWARE
+                        </button>
+                        <button class="filter-btn" data-filter="robotics" role="tab" aria-selected="false">
+                            <span class="filter-indicator"></span> ROBOTICS
+                        </button>
+                        <button class="filter-btn" data-filter="systems" role="tab" aria-selected="false">
+                            <span class="filter-indicator"></span> SYSTEMS
+                        </button>
+                        <button class="filter-btn" data-filter="research" role="tab" aria-selected="false">
+                            <span class="filter-indicator"></span> RESEARCH / SEC
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Projects Dynamic Grid -->
+                <div class="projects-grid" id="projects-grid">
+                    <!-- Populated dynamically via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECT DETAIL MODAL CONTAINER -->
+        <div class="project-modal" id="project-modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
+            <div class="modal-backdrop" id="modal-backdrop"></div>
+            <div class="modal-wrapper">
+                <div class="modal-window">
+                    <button class="modal-close-btn" id="modal-close-btn" aria-label="Close modal dialog">&times;</button>
+                    
+                    <div class="modal-content" id="modal-content">
+                        <!-- Dynamic modal payload inserted by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- THE LAB / EXPERIMENT ARCHIVE -->
+        <section class="lab-section section-padding" id="lab">
+            <div class="container">
+                <div class="section-header reveal-element">
+                    <div class="header-titles">
+                        <span class="mono-accent">03 — EXPERIMENT ARCHIVE</span>
+                        <h2 class="section-title">THE LAB</h2>
+                    </div>
+                    <p class="header-desc">
+                        A chronological log of ongoing experiments, ML dataset ingestions, static analysis rules, and active bench tests.
+                    </p>
+                </div>
+
+                <div class="timeline-container" id="timeline-container">
+                    <!-- Populated dynamically via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- WHAT BROKE / DEBUGGING SECTION -->
+        <section class="failures-section section-padding" id="failures">
+            <div class="container">
+                <div class="section-header reveal-element">
+                    <div class="header-titles">
+                        <span class="mono-accent">04 — INCIDENT REPORTS</span>
+                        <h2 class="section-title">WHAT BROKE</h2>
+                    </div>
+                    <p class="header-desc">
+                        Engineering isn't the absence of failure. It's what happens after it. Real post-mortems from hardware, machine learning models, and security parsers.
+                    </p>
+                </div>
+
+                <div class="failures-quote-banner reveal-element">
+                    <div class="banner-tag">AUTHENTICITY GUARANTEE</div>
+                    <blockquote class="banner-text">
+                        "Every false positive, buffer overflow, and ledger discrepancy is an empirical lesson in how complex systems behave under strain."
+                    </blockquote>
+                </div>
+
+                <div class="incidents-grid" id="incidents-grid">
+                    <!-- Populated dynamically via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- CAPABILITIES MAP / SKILLS SECTION -->
+        <section class="capabilities-section section-padding" id="capabilities">
+            <div class="container">
+                <div class="section-header reveal-element">
+                    <div class="header-titles">
+                        <span class="mono-accent">05 — DOMAIN ARCHITECTURE</span>
+                        <h2 class="section-title">CAPABILITIES</h2>
+                    </div>
+                    <p class="header-desc">
+                        An editorial map of technical proficiencies, AI/ML models, hardware microcontrollers, web frameworks, and software toolsets.
+                    </p>
+                </div>
+
+                <div class="capabilities-grid" id="capabilities-grid">
+                    <!-- Populated dynamically via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- CURRENTLY BUILDING TELEMETRY -->
+        <section class="building-section section-padding" id="building">
+            <div class="container">
+                <div class="section-header reveal-element">
+                    <div class="header-titles">
+                        <span class="mono-accent">06 — LIVE TELEMETRY</span>
+                        <h2 class="section-title">CURRENTLY BUILDING</h2>
+                    </div>
+                    <p class="header-desc">
+                        Active projects undergoing active development and testing.
+                    </p>
+                </div>
+
+                <div class="telemetry-grid" id="building-grid">
+                    <!-- Populated dynamically via JS from data/building.json -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section class="about-section section-padding" id="about">
+            <div class="container">
+                <div class="section-header reveal-element">
+                    <div class="header-titles">
+                        <span class="mono-accent">07 — PERSPECTIVE</span>
+                        <h2 class="section-title">ABOUT ME</h2>
+                    </div>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-left reveal-element">
+                        <div class="about-num-badge">
+                            <span class="big-num" id="cgpa-counter">0.00</span>
+                            <span class="mono-label">CGPA / 10</span>
+
+                            <!-- Semester Progression Telemetry Grid -->
+                            <div class="sem-progression-box" id="sem-progression-box">
+                                <!-- Populated dynamically via JS from data/about.json -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-right reveal-element">
+                        <h3 class="about-tagline" id="about-tagline">
+                            Computer Science & Engineering (AI/ML) student at R V College of Engineering focused on building practical, intelligent software and hardware systems.
+                        </h3>
+                        <div id="about-text-container">
+                            <p class="about-text">
+                                I am an AI & Machine Learning undergraduate at RVCE (Bengaluru), currently in Semester 5 with a cumulative CGPA of 9.08/10. My technical background spans core artificial intelligence, computer vision, cybersecurity, embedded systems, and software engineering—driven by a commitment to solving practical, real-world problems.
+                            </p>
+                            <p class="about-text">
+                                Alongside my technical studies, I serve as a volunteer with the National Service Scheme (NSS), RVCE, participating in community service, environmental sustainability, and cyber-awareness initiatives. I am also the published author of <a href="https://www.amazon.in/dp/B0DNBKW61V" target="_blank" rel="noopener noreferrer" class="book-link"><em>Quantum Shadows</em> ↗</a> and a screenwriter, blending analytical thinking with creative narrative design.
+                            </p>
+                        </div>
+
+                        <div class="about-metadata-box" id="about-metadata-box">
+                            <!-- Populated dynamically via JS from data/about.json -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section class="contact-section section-padding" id="contact">
+            <div class="container">
+                <div class="contact-card reveal-element">
+                    <div class="contact-header">
+                        <span class="mono-accent">08 / GET IN TOUCH</span>
+                    </div>
+
+                    <h2 class="contact-headline">
+                        LET'S BUILD<br>
+                        <span class="text-accent-gradient">SOMETHING</span><br>
+                        WORTH DEBUGGING.
+                    </h2>
+
+                    <div class="contact-links-grid">
+                        <a href="https://www.github.com/WhiteDevil-06/" target="_blank" rel="noopener noreferrer" class="contact-link-item magnetic-btn">
+                            <div class="link-label">
+                                <span class="mono-label">01 / CODE REPOSITORIES</span>
+                                <span class="link-name">GITHUB / WhiteDevil-06</span>
+                            </div>
+                            <svg class="btn-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3.33337 8H12.6667M12.6667 8L8.00004 3.33334M12.6667 8L8.00004 12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/rakshith-raghavendra-441b92315/" target="_blank" rel="noopener noreferrer" class="contact-link-item magnetic-btn">
+                            <div class="link-label">
+                                <span class="mono-label">02 / PROFESSIONAL NETWORK</span>
+                                <span class="link-name">LINKEDIN / RAKSHITH</span>
+                            </div>
+                            <svg class="btn-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3.33337 8H12.6667M12.6667 8L8.00004 3.33334M12.6667 8L8.00004 12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                        <a href="mailto:rakshithraghavendra.rr2006@gmail.com?subject=Inquiry%20%2F%20Collaboration%20%E2%80%94%20Rakshith%20Raghavendra&body=Hi%20Rakshith%2C%0A%0AI%20came%20across%20your%20engineering%20portfolio%20and%20would%20like%20to%20reach%20out%20regarding%20...%0A%0ABest%20regards%2C%0A%5BYour%20Name%5D" class="contact-link-item magnetic-btn">
+                            <div class="link-label">
+                                <span class="mono-label">03 / DIRECT EMAIL</span>
+                                <span class="link-name">rakshithraghavendra.rr2006@gmail.com</span>
+                            </div>
+                            <svg class="btn-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3.33337 8H12.6667M12.6667 8L8.00004 3.33334M12.6667 8L8.00004 12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                        <a href="resume.html" class="contact-link-item magnetic-btn" id="resume-link">
+                            <div class="link-label">
+                                <span class="mono-label">04 / DOCUMENTATION</span>
+                                <span class="link-name">VIEW INTERACTIVE RESUME</span>
+                            </div>
+                            <svg class="btn-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3.33337 8H12.6667M12.6667 8L8.00004 3.33334M12.6667 8L8.00004 12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-col-left">
+                <div class="footer-brand">RR / HOME</div>
+                <div class="footer-motto mono-label">BUILD IT. DEBUG IT. PROVE IT.</div>
+            </div>
+
+            <div class="footer-col-center">
+                <div class="live-clock-box">
+                    <span class="clock-icon">●</span>
+                    <span class="mono-label">SYSTEM CLOCK:</span>
+                    <span id="live-clock" class="mono-accent font-bold">00:00:00:000 IST</span>
+                </div>
+            </div>
+
+            <div class="footer-col-right">
+                <div class="footer-copy mono-label">
+                    © 2026 <span class="text-accent">R</span>AKSHITH <span class="text-accent">R</span>AGHAVENDRA. RVCE CSE-AI/ML.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Application Logic -->
+    <script src="js/data-loader.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
