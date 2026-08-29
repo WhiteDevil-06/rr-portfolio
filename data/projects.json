@@ -288,8 +288,8 @@
     "status": "completed",
     "statusLabel": "DSA // COMPLETED",
     "image": {
-      "src": "assets/images/fiber-grating.svg",
-      "alt": "ERDOS DSA Healthcare Workflow Simulation",
+      "src": "assets/images/erdos-dsa.svg",
+      "alt": "ERDOS Healthcare Simulation Data Structures Architecture",
       "position": "center"
     },
     "year": "2025",
@@ -298,7 +298,8 @@
     "highlight": "Engineered problem-driven DSA architecture mapping patient triage to Priority Queues and hospital beds to Hash Tables.",
     "result": "Implemented core PatientNode, PatientList, insertion, search, and priority triage modules.",
     "links": {
-      "github": "https://www.github.com/WhiteDevil-06/"
+      "github": "https://github.com/WhiteDevil-06/ERDOS",
+      "linkedin": "https://www.linkedin.com/posts/rakshith-raghavendra-441b92315_python-ai-datastructures-activity-7427203946512916480-IPwK?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFAWPPEB6sKh77MNgTrM7u01nVhmuzDfhE4"
     },
     "caseStudy": {
       "overview": "ERDOS is a DSA-driven emergency healthcare simulation system designed to manage patient triage, bed allocation, and doctor scheduling using explicit custom data structures.",
