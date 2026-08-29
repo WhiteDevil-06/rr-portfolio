@@ -584,21 +584,21 @@ async function initCapabilitiesGrid() {
 
     grid.innerHTML = data.map((cap) => `
         <div class="capability-card reveal-element">
-            <div class="card-meta">
-                <span class="mono-accent">${cap.number || ''} // ${cap.label || cap.title}</span>
+            <div class="cap-header-block" style="display:flex; flex-direction:column; gap:0.4rem;">
+                <div class="card-meta">
+                    <span class="mono-accent" style="font-size: 1.1rem; font-weight: 700;">${cap.number || ''} // ${cap.title}</span>
+                </div>
+                <p class="project-card-desc" style="font-size:0.85rem; line-height:1.5; margin: 0;">${cap.description}</p>
+                ${cap.pattern ? `
+                <div class="cap-pattern" style="margin-top:0.2rem;">
+                    <span class="pattern-flow">${cap.pattern}</span>
+                </div>` : ''}
             </div>
-            <h3 class="cap-title">${cap.title}</h3>
-            <p class="project-card-desc" style="font-size:0.85rem; line-height:1.5;">${cap.description}</p>
-            
-            ${cap.pattern ? `
-            <div class="cap-pattern">
-                <span class="pattern-flow">${cap.pattern}</span>
-            </div>` : ''}
 
-            <ul class="cap-list" style="margin-top:0.8rem; margin-bottom:auto;">
+            <ul class="cap-list" style="margin-top: 0.6rem; margin-bottom: 0.5rem;">
                 ${(cap.capabilities || cap.evidence || []).map((e) => `<li class="cap-item" style="font-size:0.8rem; line-height:1.4;">${e}</li>`).join("")}
             </ul>
-            <div class="project-tech-list" style="margin-top:1.2rem;">
+            <div class="project-tech-list" style="margin-top:auto; padding-top: 0.8rem;">
                 ${cap.technologies.map((t) => `<span class="tech-tag">${t}</span>`).join("")}
             </div>
         </div>
