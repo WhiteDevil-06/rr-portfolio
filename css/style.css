@@ -1577,6 +1577,24 @@ body.cursor-clicking .cursor-ring {
     color: var(--accent);
 }
 
+.cap-pattern {
+    padding: 6px 10px;
+    background-color: var(--surface);
+    border: 1px solid var(--border-bright);
+    border-radius: 2px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.pattern-flow {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--accent);
+    letter-spacing: 0.03em;
+    display: block;
+    word-break: break-word;
+}
+
 /* --------------------------------------------------------------------------
    12. CURRENTLY BUILDING
    -------------------------------------------------------------------------- */

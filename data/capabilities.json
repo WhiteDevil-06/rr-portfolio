@@ -1,53 +1,68 @@
 [
   {
-    "id": "cap-ai-ml",
-    "domain": "AI / MACHINE LEARNING",
+    "id": "perception",
     "number": "01",
-    "shortDescription": "Engineering statistical ML models, computer vision pipelines, and physics-informed neural networks grounded in real-world validation.",
-    "evidence": [
-      "Trained custom YOLOv8 carton detector achieving 0.917 Precision and 0.895 mAP@0.5",
-      "Engineered feature-fusion Logistic Regression scanner on CVEFixes v1.0.7 dataset",
-      "Formulated physics-informed loss constraints for optical FBG sensor wavelength decoupling"
+    "label": "PERCEPTION",
+    "title": "PERCEPTION",
+    "description": "Making systems see, measure and interpret the physical world.",
+    "pattern": "see → classify → detect → respond",
+    "capabilities": [
+      "Computer Vision",
+      "Object Detection",
+      "CNN Classification",
+      "Sensor Data",
+      "Image Processing"
     ],
-    "technologies": ["Python", "TensorFlow", "PyTorch", "OpenCV", "YOLOv8", "Scikit-learn", "TF-IDF"],
-    "projects": ["sentinel-sast", "cv-object-counter", "fbg-sensor-pinn", "agrosort-ai"]
+    "technologies": ["Python", "OpenCV", "TensorFlow", "YOLOv8", "Computer Vision"]
   },
   {
-    "id": "cap-embedded-robotics",
-    "domain": "EMBEDDED / IOT & ROBOTICS",
+    "id": "control",
     "number": "02",
-    "shortDescription": "Bridging microcontrollers, motor drivers, sensor arrays, and physical kinematics into real-time cyber-physical systems.",
-    "evidence": [
-      "Built 4-DOF ESP32 robotic arm with web virtual joystick and Teach & Repeat replay",
-      "Designed solar-to-gravitational electromechanical energy storage rig with NEMA17 stepper control",
-      "Developed 4WD autonomous robot combining IR line tracking and ultrasonic servo scanning"
+    "label": "CONTROL",
+    "title": "CONTROL",
+    "description": "Turning decisions into physical action through embedded systems, robotics and control.",
+    "pattern": "sense → decide → actuate → repeat",
+    "capabilities": [
+      "Microcontroller Control",
+      "Servo & Motor Systems",
+      "Robotic Kinematics",
+      "Sensor Integration",
+      "Embedded Control"
     ],
-    "technologies": ["ESP32", "Arduino UNO", "Embedded C/C++", "FreeRTOS", "4-DOF Kinematics", "L298N", "DRV8825"],
-    "projects": ["agrosort-ai", "gravitational-battery"]
+    "technologies": ["ESP32", "Arduino", "Embedded C/C++", "FreeRTOS", "4-DOF Kinematics", "L298N", "DRV8825"]
   },
   {
-    "id": "cap-web-software",
-    "domain": "WEB & SOFTWARE DEV",
+    "id": "intelligence",
     "number": "03",
-    "shortDescription": "Building fast, high-contrast, zero-dependency web applications, algorithm visualizers, and RESTful control APIs.",
-    "evidence": [
-      "Built zero-dependency Huffman vs Shannon-Fano algorithm arena with microsecond performance benchmarking",
-      "Created event-driven Flask web APIs connecting browser UIs to physical ESP32 robotics",
-      "Engineered problem-driven DSA healthcare simulation structure mapping triage to priority queues"
+    "label": "INTELLIGENCE",
+    "title": "INTELLIGENCE",
+    "description": "Using data, models and structured analysis to turn observations into decisions.",
+    "pattern": "data → model → inference → validation",
+    "capabilities": [
+      "Machine Learning",
+      "Classification",
+      "Regression",
+      "Feature Engineering",
+      "Model Evaluation",
+      "Statistical Analysis"
     ],
-    "technologies": ["HTML5", "Vanilla CSS", "Vanilla JavaScript", "Flask", "REST APIs", "Streamlit", "Performance API"],
-    "projects": ["huffman-shannon-fano", "sentinel-sast", "erdos-dsa"]
+    "technologies": ["Python", "Scikit-learn", "PyTorch", "TensorFlow", "TF-IDF", "Machine Learning"]
   },
   {
-    "id": "cap-research-leadership",
-    "domain": "RESEARCH & LEADERSHIP",
+    "id": "systems",
     "number": "04",
-    "shortDescription": "Conducting empirical field research, regulatory biosafety investigations, and technical authoring.",
-    "evidence": [
-      "Published author of 'Quantum Shadows' exploring technological implications",
-      "Led field research across 29 farmers & 180 consumers mapping 6-11 supply-chain markups for TRIP platform"
+    "label": "SYSTEMS",
+    "title": "SYSTEMS",
+    "description": "Connecting software, hardware, data and interfaces into systems that work end-to-end.",
+    "pattern": "component → interface → workflow → system",
+    "capabilities": [
+      "API Design",
+      "Embedded Communication",
+      "Web Interfaces",
+      "Data Workflows",
+      "State-Driven Systems",
+      "Testing & Debugging"
     ],
-    "technologies": ["Field Survey Research", "Regulatory Policy", "Technical Authoring", "System Architecture", "Biosafety Standards"],
-    "projects": ["trip-rural-impact"]
+    "technologies": ["JavaScript", "HTML/CSS", "Flask", "REST APIs", "MERN", "Python", "Git"]
   }
 ]

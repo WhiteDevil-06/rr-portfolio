@@ -585,12 +585,18 @@ async function initCapabilitiesGrid() {
     grid.innerHTML = data.map((cap) => `
         <div class="capability-card reveal-element">
             <div class="card-meta">
-                <span class="mono-accent">DOMAIN ${cap.number || ''}</span>
+                <span class="mono-accent">${cap.number || ''} // ${cap.label || cap.title}</span>
             </div>
-            <h3 class="cap-title">${cap.domain}</h3>
-            <p class="project-card-desc" style="font-size:0.85rem; line-height:1.5;">${cap.shortDescription}</p>
-            <ul class="cap-list" style="margin-bottom:auto;">
-                ${cap.evidence.map((e) => `<li class="cap-item" style="font-size:0.8rem; line-height:1.4;">✓ ${e}</li>`).join("")}
+            <h3 class="cap-title">${cap.title}</h3>
+            <p class="project-card-desc" style="font-size:0.85rem; line-height:1.5;">${cap.description}</p>
+            
+            ${cap.pattern ? `
+            <div class="cap-pattern">
+                <span class="pattern-flow">${cap.pattern}</span>
+            </div>` : ''}
+
+            <ul class="cap-list" style="margin-top:0.8rem; margin-bottom:auto;">
+                ${(cap.capabilities || cap.evidence || []).map((e) => `<li class="cap-item" style="font-size:0.8rem; line-height:1.4;">${e}</li>`).join("")}
             </ul>
             <div class="project-tech-list" style="margin-top:1.2rem;">
                 ${cap.technologies.map((t) => `<span class="tech-tag">${t}</span>`).join("")}
