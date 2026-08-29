@@ -23,7 +23,7 @@
       "Developed 4WD autonomous robot combining IR line tracking and ultrasonic servo scanning"
     ],
     "technologies": ["ESP32", "Arduino UNO", "Embedded C/C++", "FreeRTOS", "4-DOF Kinematics", "L298N", "DRV8825"],
-    "projects": ["agrosort-ai", "gravitational-battery", "cps-line-follower"]
+    "projects": ["agrosort-ai", "gravitational-battery"]
   },
   {
     "id": "cap-web-software",
@@ -45,10 +45,9 @@
     "shortDescription": "Conducting empirical field research, regulatory biosafety investigations, and technical authoring.",
     "evidence": [
       "Published author of 'Quantum Shadows' exploring technological implications",
-      "Led field research across 29 farmers & 180 consumers mapping 6-11 supply-chain markups for TRIP platform",
-      "Authored academic biosafety research paper analyzing international synthetic food dye regulations"
+      "Led field research across 29 farmers & 180 consumers mapping 6-11 supply-chain markups for TRIP platform"
     ],
     "technologies": ["Field Survey Research", "Regulatory Policy", "Technical Authoring", "System Architecture", "Biosafety Standards"],
-    "projects": ["trip-rural-impact", "toxic-colours-paper"]
+    "projects": ["trip-rural-impact"]
   }
 ]

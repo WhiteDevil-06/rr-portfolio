@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="trip-bg-clean" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#060907" />
+      <stop offset="50%" stop-color="#0A140F" />
+      <stop offset="100%" stop-color="#050806" />
+    </linearGradient>
+    <pattern id="trip-grid-subtle" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(46, 204, 113, 0.04)" stroke-width="1" />
+    </pattern>
+    <linearGradient id="trip-text-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2ECC71" />
+      <stop offset="100%" stop-color="#27AE60" />
+    </linearGradient>
+    <filter id="trip-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="12" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Deep dark background with subtle grid -->
+  <rect width="800" height="500" fill="url(#trip-bg-clean)" />
+  <rect width="800" height="500" fill="url(#trip-grid-subtle)" />
+  
+  <!-- Subtle outer border frame -->
+  <rect x="25" y="25" width="750" height="450" fill="none" stroke="rgba(46, 204, 113, 0.15)" stroke-width="1.5" rx="4" />
+
+  <!-- Outer ambient glow text -->
+  <text x="400" y="275" font-family="'JetBrains Mono', 'Inter', monospace" font-size="120" font-weight="900" fill="#2ECC71" text-anchor="middle" letter-spacing="16" opacity="0.25" filter="url(#trip-glow)">TRIP</text>
+
+  <!-- Main bold TRIP Text -->
+  <text x="400" y="275" font-family="'JetBrains Mono', 'Inter', monospace" font-size="120" font-weight="900" fill="url(#trip-text-glow)" text-anchor="middle" letter-spacing="16">TRIP</text>
+</svg>

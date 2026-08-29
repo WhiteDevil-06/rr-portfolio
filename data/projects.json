@@ -328,111 +328,17 @@
       "lessons": "The problem determined the data structures. Didn't force data structures into an arbitrary app; changed the app so each structure had a clear purpose."
     }
   },
-  {
-    "id": "toxic-colours-paper",
-    "title": "TOXIC COLOURS BENEATH THE RAINBOW",
-    "shortDescription": "A biosafety and regulatory case study examining synthetic food colours, scientific evidence, regulatory differences, and ethical implications.",
-    "categories": ["BIOSAFETY", "REGULATORY RESEARCH", "ACADEMIC STUDY"],
-    "status": "completed",
-    "statusLabel": "RESEARCH // COMPLETED",
-    "image": {
-      "src": "assets/images/hardwarelab-os.svg",
-      "alt": "Toxic Colours Case Study Header",
-      "position": "center"
-    },
-    "year": "2025",
-    "role": "Primary Researcher & Author",
-    "technologies": ["Secondary Data Analysis", "Toxicological Research", "Regulatory Policy", "Biosafety Standards", "Academic Writing"],
-    "highlight": "Analyzed international regulatory divergences (India vs EU/US) for synthetic food colorants in commercial confectionery.",
-    "result": "Authored comprehensive biosafety case study examining consumer health risks and natural colorant alternatives.",
-    "links": {
-      "linkedin": "https://www.linkedin.com/in/rakshith-raghavendra-441b92315/"
-    },
-    "caseStudy": {
-      "overview": "An academic research case study examining synthetic food dye regulations, toxicological evidence, and policy differences between Indian standards (FSSAI) and international bodies (EFSA/FDA).",
-      "problem": "Widespread commercial use of synthetic colorants associated with potential health risks, combined with public lack of awareness regarding international regulatory bans.",
-      "objective": "Perform secondary-data analysis evaluating toxicological studies, regulatory discrepancies, and feasible natural colorant substitutes.",
-      "myContribution": "Selected research topic, framed problem, conducted regulatory comparative analysis, and authored research paper draft.",
-      "system": [
-        "Ingredient Label Audit → Identify Synthetic Dye → Toxicological Evidence Search → India vs International Regulatory Comparison → Ethical Analysis → Natural Alternatives Evaluation"
-      ],
-      "development": [
-        "Compared FSSAI permissible limits against European Food Safety Authority (EFSA) warnings."
-      ],
-      "challenges": [
-        "Navigating conflicting industry vs academic toxicological literature"
-      ],
-      "decisions": [
-        "Focused scope on synthetic dyes commonly found in child-targeted confectionery",
-        "Evaluated technical and economic feasibility of plant-based natural pigments"
-      ],
-      "results": [
-        "Completed comprehensive comparative regulatory review paper",
-        "Outlined policy recommendations for food safety labeling"
-      ],
-      "currentState": "Active Revision / Academic Paper.",
-      "lessons": "Evidence-driven research and challenging assumptions through methodical regulatory investigation."
-    }
-  },
-  {
-    "id": "cps-line-follower",
-    "title": "CYBER-PHYSICAL LINE FOLLOWER & OBSTACLE AVOIDER",
-    "shortDescription": "A sensor-driven autonomous 4WD robot combining IR line detection, ultrasonic obstacle sensing, embedded decision logic, and motor actuation.",
-    "categories": ["CYBER-PHYSICAL SYSTEMS", "EMBEDDED SYSTEMS", "ROBOTICS"],
-    "status": "completed",
-    "statusLabel": "ROBOTICS // COMPLETED",
-    "image": {
-      "src": "assets/images/fiber-grating.svg",
-      "alt": "Cyber-Physical System Autonomous Robot",
-      "position": "center"
-    },
-    "year": "2025",
-    "role": "Embedded Systems Engineer",
-    "technologies": ["Arduino UNO", "Embedded C/C++", "L298N", "IR Sensors", "HC-SR04", "Servo Motors", "DC Motors", "PlatformIO"],
-    "highlight": "Integrated 4WD motor actuation with IR array line-tracking and ultrasonic servo scanning logic on Arduino UNO.",
-    "result": "Demonstrated stable autonomous line following and initial obstacle detection.",
-    "links": {
-      "github": "https://www.github.com/WhiteDevil-06/"
-    },
-    "caseStudy": {
-      "overview": "Designed and built an autonomous 4WD mobile robot driven by an Arduino UNO microcontroller. The system combines infrared (IR) line-tracking arrays for navigation with ultrasonic distance sensors mounted on a pan servo for dynamic obstacle detection.",
-      "problem": "Unstable sensor readings, motor direction mismatches during rapid directional shifts, compilation toolchain issues, and power starvation when motors and servos triggered simultaneously.",
-      "objective": "Construct a responsive cyber-physical control loop combining real-time line following with automated obstacle avoidance.",
-      "myContribution": "Assembled hardware chassis, configured PlatformIO embedded compilation toolchain, developed differential motor drive algorithms, and debugged sensor control loops.",
-      "system": [
-        "IR Sensors Array → Arduino UNO → Decision Logic → L298N Motor Driver → DC Motors",
-        "HC-SR04 Ultrasonic → Pan Servo → Distance Threshold Check → Avoidance Manoeuvres"
-      ],
-      "development": [
-        "Built modular PlatformIO firmware structure separating motor control primitives from high-level state machine logic."
-      ],
-      "challenges": [
-        "Compilation failure in PlatformIO environment due to header scope mismatches",
-        "DC motor direction reversal under low battery voltage",
-        "Ultrasonic distance jitter caused by acoustic reflections"
-      ],
-      "decisions": [
-        "Implemented moving-average filter on ultrasonic distance readings to eliminate acoustic noise spikes",
-        "Isolated motor driver power supply from microcontroller logic power"
-      ],
-      "results": [
-        "Achieved continuous autonomous line-following along complex test tracks",
-        "Validated dynamic obstacle detection and automated stop-and-scan sequence"
-      ],
-      "currentState": "Prototype / Partially validated.",
-      "lessons": "A logically correct control system can still fail when power, sensing, and physical integration are not controlled properly."
-    }
-  },
+
   {
     "id": "trip-rural-impact",
     "title": "TRIP — TECH-ENABLED RURAL IMPACT PLATFORM",
     "shortDescription": "Farmer-centric agri-supply-chain startup concept developed through field validation, consumer research, and pilot planning.",
     "categories": ["AGRI-TECH", "SUPPLY CHAIN", "SYSTEM DESIGN", "PRODUCT RESEARCH"],
-    "status": "completed",
-    "statusLabel": "CONCEPT // COMPLETED",
+    "status": "deferred",
+    "statusLabel": "CONCEPT // DEFERRED",
     "image": {
-      "src": "assets/images/agrosort-ai.svg",
-      "alt": "TRIP Rural Impact Platform Concept Architecture",
+      "src": "assets/images/trip-rural-impact.svg",
+      "alt": "TRIP Tech-Enabled Rural Impact Platform",
       "position": "center"
     },
     "year": "2024 - 2026",
@@ -441,7 +347,7 @@
     "highlight": "Conducted field validation across 29 farmers in Mulbagal/Kolar & ~180 urban consumers in Bengaluru; mapped 6–11 intermediary markups.",
     "result": "Designed direct apartment-cluster procurement pilot model eliminating middleman price volatility.",
     "links": {
-      "linkedin": "https://www.linkedin.com/in/rakshith-raghavendra-441b92315/"
+      "linkedin": "https://www.linkedin.com/posts/rakshith-raghavendra-441b92315_entrepreneurship-startupjourney-trip-activity-7371384430273314816-ERCo?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFAWPPEB6sKh77MNgTrM7u01nVhmuzDfhE4"
     },
     "caseStudy": {
       "overview": "TRIP (Tech-enabled Rural Impact Platform) is an agri-supply-chain product concept aimed at connecting smallholder farmers directly to urban consumer clusters.",
@@ -466,7 +372,7 @@
         "Completed field validation with 29 farmers and ~180 urban consumers",
         "Documented 6-11 intermediary layer markup structure"
       ],
-      "currentState": "Paused / Concept-stage startup with validated problem.",
+      "currentState": "Deferred / Concept-stage startup after 2 years of field validation.",
       "lessons": "Demonstrates taking an ambiguous real-world problem -> going into the field -> gathering evidence -> challenging assumptions -> redesigning the system."
     }
   },
@@ -478,44 +384,60 @@
     "status": "completed",
     "statusLabel": "HARDWARE + ENERGY // COMPLETED",
     "image": {
-      "src": "assets/images/embedded-lab.svg",
-      "alt": "Gravitational Battery Prototype Setup",
+      "src": "assets/images/gravitational-battery.png",
+      "alt": "Gravitational Battery Physical Solar Energy Storage Prototype Setup",
       "position": "center"
     },
     "year": "2024 - 2025",
-    "role": "Project Lead / Ideator",
-    "technologies": ["Arduino UNO", "NEMA17", "DRV8825", "DC Dynamo Motors", "20W Solar Panel", "Potentiometer", "Voltage Sensing", "3D-Printed Components"],
-    "highlight": "Built a 1 kg / 0.6 m tower physical gravity energy storage rig with potentiometer position tracking and load testing across 250g–1000g.",
-    "result": "Validated electromechanical lift-descent loop and dynamo generation math under physical mechanical constraints.",
+    "role": "Project Lead & Embedded Developer",
+    "technologies": ["Arduino UNO", "NEMA17 (17HS8401)", "DRV8825", "DC Dynamo Motors", "20W Solar Panel", "INA219", "Potentiometer", "6-pin DPDT", "C++ / Embedded C"],
+    "highlight": "Built a 1 kg / 0.6 m vertical tower physical gravity energy storage rig with Arduino position tracking, INA219 current sensing, and 17.93% measured efficiency at 1 kg.",
+    "result": "Demonstrated physical solar-to-gravitational energy conversion and electromechanical recovery across 250g–1000g loads.",
     "links": {
-      "github": "https://www.github.com/WhiteDevil-06/"
+      "linkedin": "https://www.linkedin.com/posts/rakshith-raghavendra-441b92315_gravitationalbattery-engineeringlife-aiinengineering-activity-7346860297690738689-f7xJ?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFAWPPEB6sKh77MNgTrM7u01nVhmuzDfhE4"
     },
     "caseStudy": {
-      "overview": "The project explored solar-to-gravitational energy storage using a lifted 1 kg mass on a 0.6 m tower. Solar input powered a lifting motor to store gravitational potential energy, followed by a controlled descent driving a dynamo generator to power an LED load.",
-      "problem": "Mechanical instability, motor torque limits, output voltage fluctuations, and locking/release mechanism failures under varying physical loads.",
-      "objective": "Design and test a physical solar-to-gravitational energy conversion and electromechanical recovery pipeline.",
-      "myContribution": "Designed the lifting mechanism, integrated motor driver logic, performed potentiometer position calibration, and ran multi-load output analysis.",
+      "overview": "The project explored solar-to-gravitational energy storage by lifting a 1 kg mass through a 0.6 m vertical structure. Solar energy powered the lifting mechanism, storing energy as gravitational potential energy. During descent, the rotating shaft drove DC dynamo motors to recover electrical energy and power an LED load. The system combined mechanical energy storage, electromechanical generation, and Arduino-based locking control.",
+      "problem": "The main engineering challenges were mechanical friction, shaft instability, weight balancing, motor overheating, plastic gear failure, and unstable electrical output under different loads. The locking mechanism also required iterative redesign to achieve controlled positioning and release.",
+      "objective": "Design and experimentally test a physical solar-to-gravitational energy-storage and electromechanical recovery system, and analyze how different lifted masses affected the resulting current, power, and efficiency.",
+      "myContribution": "Led the project concept and development; worked on the lifting/descent mechanism, Arduino-controlled NEMA17 locking system, DRV8825 integration, potentiometer position calibration, multi-load testing, INA219-based electrical measurements, and output analysis. (Note: NEMA17 was used specifically for the locking/stopper mechanism; lifting/descent operation used DC dynamo motors with manual 6-pin DPDT switching).",
       "system": [
-        "Solar Panel → Electrical Input → Motor/Control → Lift Mass → Gravitational Potential Energy → Controlled Descent → Dynamo → Electrical Output → LED Load"
+        "20W Solar Panel → DC Dynamo Motor / Lifting Mechanism → 1 kg Mass → Gravitational Potential Energy → Controlled Release → Dynamo Rotation → Electrical Output → INA219 Measurement / LED Load",
+        "Arduino UNO → DRV8825 → NEMA17 → Locking/Stopper Mechanism",
+        "Potentiometer → Position Feedback → Arduino Lock Control",
+        "6-pin DPDT + push buttons → Manual lift/descent control"
       ],
       "development": [
-        "Iterated from early lifting approach to separate stopper motor, 3D-printed mechanical stoppers, NEMA17 stepper motor precision lifting, and potentiometer-based position tracking."
+        "Started with the gravitational-energy storage concept and early lifting experiments.",
+        "Explored a separate stopper mechanism for holding the shaft.",
+        "Developed a 3D-printed mechanical stopper.",
+        "Moved to a NEMA17 stepper + DRV8825 for more precise shaft locking.",
+        "Added a potentiometer for lock-position feedback and calibration.",
+        "Retained manual lift/descent control through DC dynamo motors, DPDT switching, and push buttons rather than forcing full Arduino control."
       ],
       "challenges": [
-        "High mechanical friction during descent",
-        "Dynamo voltage fluctuations under changing descent speeds",
-        "Stopper motor release binding under heavy 1kg load"
+        "Mechanical friction during the energy-recovery cycle.",
+        "Shaft instability and weight-balancing issues.",
+        "Plastic gear stripping under mechanical loading.",
+        "Motor overheating under sustained load.",
+        "Unstable/noisy behavior at lower mass loads.",
+        "Electrical output varying with physical operating conditions.",
+        "Designing a reliable locking mechanism for the lifted mass."
       ],
       "decisions": [
-        "Adopted NEMA17 stepper motor with DRV8825 driver for high-torque precise mass elevation",
-        "Used a multi-stage load testing protocol (250g, 500g, 750g, 1000g) to map dynamo voltage curves"
+        "Adopted a NEMA17 (17HS8401) + DRV8825 configuration for the shaft locking mechanism to obtain controlled positioning.",
+        "Used a potentiometer as position feedback for the locking system.",
+        "Retained manual lift/descent control using DC dynamo motors, 6-pin DPDT and push buttons.",
+        "Tested multiple masses (250 g, 500 g, 750 g and 1 kg) to study the relationship between mass and electrical output.",
+        "Used INA219 measurements for current/power analysis and empirical regression modelling."
       ],
       "results": [
-        "Successfully demonstrated physical lifting and electrical generation cycle",
-        "Documented exact voltage output curves across 4 distinct mass configurations"
+        "Demonstrated physical mass lifting and gravitational energy recovery through dynamo generation across 250 g, 500 g, 750 g, and 1 kg configurations.",
+        "The 250 g configuration showed noisy/unstable behavior, while the 1 kg configuration produced the strongest documented performance (17.93% efficiency).",
+        "Derived empirical relationships: Current: I = 69.23m + 57.38 mA | Power: P = 331.0m + 289.5 mW | Efficiency: η = 19.44m - 1.51 %."
       ],
-      "currentState": "Retired / Legacy research prototype.",
-      "lessons": "Complete physical engineering loop: code → electronics → motors → sensors → mechanical system → measurement → debugging → iteration. Demonstrates real physical engineering constraints."
+      "currentState": "Retired / Legacy Engineering Prototype. Completed as an experimental prototype and archived. Mechanical and control concepts preserved for future vertical-lift or energy system applications.",
+      "lessons": "Built a complete physical engineering loop across mechanical design → electronics → motor control → position sensing → energy conversion → measurement → experimentation → debugging → iteration. The project demonstrated that theoretical energy-storage concepts behave very differently once friction, mechanical stability, gear strength, motor heating, load balancing, and generator behavior enter the system."
     }
   }
 ]

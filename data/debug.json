@@ -68,16 +68,7 @@
     "fix": "Instead of forcing additional data structures into a weak application, the problem itself was redesigned into an emergency healthcare workflow where different operations naturally map to different structures.",
     "lesson": "Data structures should serve the problem — not the other way around.",
     "status": "RESOLVED / POST-MORTEM"
-  },
-  {
-    "id": "debug-008",
-    "project": "cps-line-follower",
-    "tag": "DEBUG-008 // CPS-ROBOT",
-    "title": "Motor Control Alignment Mismatch",
-    "symptom": "The control logic and physical motor behaviour did not initially align during robot integration.",
-    "fix": "Motor direction, wiring, and physical assembly had to be checked against the software control logic before reliable movement could be achieved.",
-    "lesson": "In embedded systems, debugging is not just code debugging. The software, wiring, power, and mechanics form one system.",
-    "status": "RESOLVED / POST-MORTEM"
+
   },
   {
     "id": "debug-009",
