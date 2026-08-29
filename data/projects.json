@@ -218,49 +218,66 @@
   {
     "id": "cv-object-counter",
     "title": "AI VISION BOX COUNTER",
-    "shortDescription": "Custom YOLOv8 computer-vision system for detecting and counting incoming cardboard cartons and connecting counts to logistics inventory workflows.",
+    "shortDescription": "A low-cost AI vision system that detects, tracks, and counts cardboard cartons and converts physical box movement into SKU-based inventory information for small and medium-scale logistics operations.",
     "categories": ["COMPUTER VISION", "AI / ML", "LOGISTICS AUTOMATION"],
     "status": "completed",
     "statusLabel": "LOGISTICS + CV // VERIFIED",
     "image": {
-      "src": "assets/images/fiber-grating.svg",
+      "src": "assets/images/cv-object-counter.jpg",
       "alt": "AI Vision Box Counter System Interface",
       "position": "center"
     },
     "year": "2025",
     "role": "Computer Vision Engineer",
-    "technologies": ["Python", "YOLOv8", "OpenCV", "Centroid Tracking", "Streamlit", "Logistics Pipeline"],
-    "highlight": "Trained custom cardboard-box YOLOv8 detector achieving 0.917 Precision and 0.895 mAP@0.5 over 20 epochs.",
-    "result": "Built automated carton counting and SKU mapping Streamlit dashboard eliminating manual inventory audit errors.",
+    "technologies": ["Python", "OpenCV", "YOLOv8", "Centroid Tracking", "Streamlit", "Logistics Pipeline"],
+    "highlight": "Trained custom cardboard-box YOLOv8 detector achieving 0.917 Precision, 0.847 Recall, and 0.895 mAP@0.5 over 20 epochs.",
+    "result": "Built automated carton counting, SKU mapping, and inventory logging Streamlit dashboard for logistics automation.",
     "links": {
-      "github": "https://www.github.com/WhiteDevil-06/"
+      "github": "https://github.com/WhiteDevil-06/AI-POWERED-VISION-BASED-OBJ-COUNTER",
+      "linkedin": "https://www.linkedin.com/posts/rakshith-raghavendra-441b92315_machinelearning-computervision-aiprojects-activity-7426980085238321152-gAAO?utm_source=social_share_send&utm_medium=android_app&rcm=ACoAAFAWPPEB6sKh77MNgTrM7u01nVhmuzDfhE4&utm_campaign=copy_link"
     },
     "caseStudy": {
-      "overview": "Developed a domain-specific computer vision system for tracking and counting cardboard cartons on logistics conveyors. The system evolved from a generic object counter into a custom-trained YOLOv8 carton detection pipeline.",
-      "problem": "Generic pre-trained YOLO object classes failed on cardboard cartons, while occlusion and overlapping items caused ID swapping and double counting in dense conveyor streams.",
-      "objective": "Train a domain-specific vision model and engineer robust centroid tracking across counting zones for accurate automated inventory logging.",
-      "myContribution": "Curated and annotated custom carton dataset, trained YOLOv8 model for 20 epochs, implemented centroid tracking algorithms, and built Streamlit inventory dashboard.",
+      "overview": "Developed a computer-vision-based logistics system for detecting and counting cardboard boxes using a custom-trained YOLOv8 model. The system evolved from an initial generic real-time object counter into a domain-specific detection, tracking, ROI counting, SKU mapping, inventory logging, and Streamlit dashboard workflow.",
+      "problem": "Generic pretrained object-detection classes were not sufficiently suited to the cardboard-box counting problem. Object tracking could also produce unstable IDs when detections changed or boxes moved close together, creating a risk of incorrect counting. The project addresses this by developing a domain-specific detection and counting pipeline intended for practical use in small and medium-scale logistics operations.",
+      "objective": "Develop and integrate a domain-specific YOLOv8 detection model with centroid-based tracking and ROI counting to automate cardboard-box counting and connect detected box quantities to SKU-based inventory records. The broader objective was to explore an affordable computer-vision automation layer that can support logistics operations without assuming expensive industrial vision infrastructure.",
+      "myContribution": "Developed and integrated the custom cardboard-box detection pipeline, trained and evaluated the YOLOv8 model, implemented centroid-based tracking and ROI counting logic, and developed the Streamlit-based inventory dashboard and data-persistence workflow. Also worked through iterative testing of detection, tracking, counting, performance, and UI behavior to refine the overall system.",
       "system": [
-        "Conveyor Camera → Custom YOLOv8 → Centroid Tracking → ROI Counting Zone → SKU Mapping → Batch Inventory Log → Streamlit Dashboard"
+        "Camera Input → Custom YOLOv8 Detection → Object Tracking → ROI Counting Zone → Counted Cartons → SKU / Units-per-Box Mapping → Inventory Calculation → Batch Logging → Streamlit Dashboard"
       ],
       "development": [
-        "Evaluated generic object tracking vs custom bounding-box detectors.",
-        "Implemented Region of Interest (ROI) line-crossing vector math to prevent double-counting."
+        "Started with a generic real-time camera and object-detection prototype.",
+        "Integrated pretrained YOLO detection and bounding-box visualization.",
+        "Added centroid-based object tracking.",
+        "Experimented with line-crossing counting for moving objects.",
+        "Shifted toward rectangular ROI-based counting for the logistics workflow.",
+        "Identified limitations of generic pretrained classes for cardboard-box detection.",
+        "Developed and trained a custom YOLOv8 detection model for the target domain.",
+        "Integrated detection, tracking, counting, SKU mapping, inventory logging, and dashboard functionality.",
+        "Added local persistence for SKU and batch/inventory information."
       ],
       "challenges": [
-        "CPU inference latency slowing down high-speed video processing",
-        "ID swapping when boxes passed close together"
+        "CPU inference latency reduced real-time processing performance on the development hardware.",
+        "Centroid tracking instability could produce new IDs when detections changed significantly or objects moved close together.",
+        "Generic YOLO detection limitations made the pretrained model unsuitable for reliably representing the target carton-counting problem.",
+        "Counting reliability depended on consistent interaction between detection, tracking, and ROI event logic.",
+        "UI integration required separating the live vision output from the larger inventory-management workflow."
       ],
       "decisions": [
-        "Trained custom YOLOv8 model specifically on cardboard cartons rather than generic COCO classes",
-        "Tuned centroid tracking distance thresholds to maintain stable box IDs"
+        "Trained a custom YOLOv8 detector for the target cardboard-box domain instead of relying solely on generic COCO classes.",
+        "Tuned centroid-tracking distance and disappearance thresholds to improve object-ID stability.",
+        "Used ROI-based counting to convert tracked detections into discrete counting events.",
+        "Connected detected box counts to SKU and units-per-box mappings for inventory calculation.",
+        "Used Streamlit to provide the operator-facing dashboard.",
+        "Used lightweight JSON persistence for SKU and inventory/batch records in the prototype."
       ],
       "results": [
-        "Achieved Precision: 0.917, mAP@0.5: 0.895 across 20 training epochs",
-        "Validated zero double-counting on continuous test feeds"
+        "Trained custom YOLOv8 Model achieving Precision: 0.917, Recall: 0.847, mAP@0.5: 0.895 over 20 training epochs.",
+        "Model evaluation included training-loss analysis, precision-recall analysis, and a normalized confusion matrix.",
+        "Implemented ID-based duplicate-count prevention logic within the ROI counting workflow."
       ],
-      "currentState": "Completed.",
-      "lessons": "Solve the domain problem first; then build the tracking, counting, business logic, and UI around it. Demonstrates practical iterative vision engineering."
+      "currentState": "Completed academic prototype for low- and medium-scale logistics automation. Integrates custom YOLOv8 detection, real-time camera inference, centroid-based tracking, ROI-based carton counting, SKU mapping, units-per-box calculation, inventory logging, Streamlit dashboard, and local data persistence.",
+      "lessons": "Domain-specific detection must be solved before optimizing downstream tracking and counting. The project demonstrated that a practical computer-vision system requires iterative validation across detection, tracking, event logic, performance, and application integration rather than treating model accuracy as the entire solution.",
+      "novelty": "Provides a low-cost vision automation workflow for small and medium-scale logistics operations. Connects Physical Carton Movement → AI Detection → Tracking → Counting → SKU Mapping → Inventory Information as a lightweight alternative to workflows that otherwise depend heavily on manual counting or expensive industrial vision infrastructure."
     }
   },
   {

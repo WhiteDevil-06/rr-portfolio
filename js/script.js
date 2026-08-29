@@ -423,18 +423,24 @@ function openProjectModal(id) {
     let sectionIndex = 1;
     let mainBlocksHtml = "";
 
-    if (cs.overview) mainBlocksHtml += buildSection(`0${sectionIndex++}`, "OVERVIEW", cs.overview);
-    if (cs.problem) mainBlocksHtml += buildSection(`0${sectionIndex++}`, "PROBLEM STATEMENT", cs.problem);
-    if (cs.objective) mainBlocksHtml += buildSection(`0${sectionIndex++}`, "ENGINEERING OBJECTIVE", cs.objective);
-    if (cs.myContribution) mainBlocksHtml += buildSection(`0${sectionIndex++}`, "MY CONTRIBUTION", cs.myContribution);
-    if (cs.system) mainBlocksHtml += buildSection(`0${sectionIndex++}`, "SYSTEM ARCHITECTURE", cs.system);
-    if (cs.development) mainBlocksHtml += buildSection(`0${sectionIndex++}`, "DEVELOPMENT EVOLUTION", cs.development);
-    if (cs.challenges) mainBlocksHtml += buildSection(`0${sectionIndex++}`, "TECHNICAL CHALLENGES", cs.challenges);
-    if (cs.debugging) mainBlocksHtml += buildSection(`0${sectionIndex++}`, "DEBUGGING & FIXES", cs.debugging);
-    if (cs.decisions) mainBlocksHtml += buildSection(`0${sectionIndex++}`, "KEY ENGINEERING DECISIONS", cs.decisions);
-    if (cs.results) mainBlocksHtml += buildSection(`0${sectionIndex++}`, "RESULTS & METRICS", cs.results);
-    if (cs.currentState) mainBlocksHtml += buildSection(`0${sectionIndex++}`, "CURRENT STATE", cs.currentState);
-    if (cs.lessons) mainBlocksHtml += buildSection(`0${sectionIndex++}`, "LESSONS LEARNED", cs.lessons);
+    const getSecNum = () => {
+        const idx = sectionIndex++;
+        return idx < 10 ? `0${idx}` : `${idx}`;
+    };
+
+    if (cs.overview) mainBlocksHtml += buildSection(getSecNum(), "OVERVIEW", cs.overview);
+    if (cs.problem) mainBlocksHtml += buildSection(getSecNum(), "PROBLEM STATEMENT", cs.problem);
+    if (cs.objective) mainBlocksHtml += buildSection(getSecNum(), "ENGINEERING OBJECTIVE", cs.objective);
+    if (cs.myContribution) mainBlocksHtml += buildSection(getSecNum(), "MY CONTRIBUTION", cs.myContribution);
+    if (cs.system) mainBlocksHtml += buildSection(getSecNum(), "SYSTEM ARCHITECTURE", cs.system);
+    if (cs.development) mainBlocksHtml += buildSection(getSecNum(), "DEVELOPMENT EVOLUTION", cs.development);
+    if (cs.challenges) mainBlocksHtml += buildSection(getSecNum(), "TECHNICAL CHALLENGES", cs.challenges);
+    if (cs.debugging) mainBlocksHtml += buildSection(getSecNum(), "DEBUGGING & FIXES", cs.debugging);
+    if (cs.decisions) mainBlocksHtml += buildSection(getSecNum(), "KEY ENGINEERING DECISIONS", cs.decisions);
+    if (cs.results) mainBlocksHtml += buildSection(getSecNum(), "RESULTS & METRICS", cs.results);
+    if (cs.currentState) mainBlocksHtml += buildSection(getSecNum(), "CURRENT STATE", cs.currentState);
+    if (cs.lessons) mainBlocksHtml += buildSection(getSecNum(), "LESSONS LEARNED", cs.lessons);
+    if (cs.novelty) mainBlocksHtml += buildSection(getSecNum(), "PROJECT NOVELTY", cs.novelty);
 
     const statusBadgeText = proj.statusLabel || (proj.status ? proj.status.replace("_", " ").toUpperCase() : "ACTIVE");
     const imgSrc = proj.image ? proj.image.src : "assets/images/embedded-lab.svg";
