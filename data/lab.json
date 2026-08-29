@@ -6,11 +6,11 @@
     "status": "completed",
     "statusLabel": "STATUS / COMPLETED",
     "date": "AUG 2026",
-    "summary": "Extracted NLOC, cyclomatic complexity, AST nesting depth, and TF-IDF features from CVEFixes v1.0.7 dataset for Python vulnerability classification model.",
-    "experiment": "Automated AST parsing pipeline across 10,000+ vulnerable and patched Python functions.",
-    "observation": "Structural metrics alone reduced false positive rate by 34% compared to pure TF-IDF statistical models.",
-    "result": "Trained calibrated Logistic Regression model with security guardrails.",
-    "lesson": "Fusing structural AST features with statistical text representations creates significantly more robust static analysis tools."
+    "summary": "Extracted NLOC, cyclomatic complexity, token count, nesting depth, and Word TF-IDF features from the CVEFixes dataset for Python vulnerability classification.",
+    "experiment": "Automated source code feature extraction pipeline across vulnerable and patched Python functions.",
+    "observation": "Reported high vulnerability recall (92.50%) with substantial false-positive trade-offs, requiring security heuristic verification.",
+    "result": "Trained calibrated Logistic Regression model with security guardrails and probability-threshold calibration.",
+    "lesson": "Combining machine learning with structural code features, domain-specific heuristics, and security guardrails creates more defensible SAST systems."
   },
   {
     "id": "exp-002",

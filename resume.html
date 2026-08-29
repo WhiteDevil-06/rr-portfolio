@@ -191,23 +191,22 @@
                     <!-- Project 2: Sentinel SAST Engine -->
                     <article class="resume-project-item">
                         <div class="resume-project-header">
-                            <h3 class="resume-project-title">Sentinel: AI-Powered Python Vulnerability Detection Engine</h3>
+                            <h3 class="resume-project-title">Sentinel: AI-Assisted Python Vulnerability Detection Engine</h3>
                             <div class="project-tech-list">
                                 <span class="tech-tag">Python</span>
                                 <span class="tech-tag">Scikit-learn</span>
                                 <span class="tech-tag">Flask</span>
-                                <span class="tech-tag">TF-IDF</span>
-                                <span class="tech-tag">CVEFixes v1.0.7</span>
+                                <span class="tech-tag">Word TF-IDF</span>
+                                <span class="tech-tag">CVEFixes</span>
                                 <span class="tech-tag">SAST</span>
                             </div>
                         </div>
                         <ul class="resume-bullet-list">
-                            <li>Built an AI-powered Static Application Security Testing (SAST) system to detect potentially vulnerable Python methods without executing source code.</li>
-                            <li>Trained and evaluated <strong>Logistic Regression models</strong> using word-level TF-IDF features extracted from real-world vulnerable and patched code from the CVEFixes v1.0.7 dataset.</li>
-                            <li>Engineered security features combining <strong>NLOC, token count, cyclomatic complexity, nesting depth, and vulnerability-specific heuristics</strong>.</li>
-                            <li>Integrated handcrafted security guardrails for patterns involving <code>eval()</code>, <code>exec()</code>, command execution, SQL queries, and dynamic code execution.</li>
-                            <li>Developed a Flask-based web application supporting Python file and GitHub repository scanning, vulnerability classification, confidence scoring, and CWE mapping.</li>
-                            <li>Implemented data preprocessing, model training, evaluation, and testing workflows using Pandas, NumPy, Scikit-learn, Pytest, Git, and GitHub.</li>
+                            <li>Built an AI-assisted Static Application Security Testing (SAST) engine to analyze Python source code for potential security vulnerabilities without executing code.</li>
+                            <li>Trained and evaluated <strong>Logistic Regression classifiers</strong> combining Word TF-IDF representations, structural code metrics (NLOC, cyclomatic complexity, token count, nesting depth), and security heuristics using CVEFixes data.</li>
+                            <li>Engineered probability-threshold calibration and deterministic security guardrails to verify high-risk ML predictions and manage precision/recall trade-offs.</li>
+                            <li>Developed a Flask-based web application supporting pasted code, uploaded Python files, and multi-file GitHub repository scanning with automated CWE mapping.</li>
+                            <li>Evaluated model performance using Recall (92.50%), F1-score (0.6416), ROC-AUC, and PR-AUC to assess practical SAST operating points.</li>
                         </ul>
                     </article>
 

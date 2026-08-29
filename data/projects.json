@@ -2,100 +2,120 @@
   {
     "id": "agrosort-ai",
     "title": "AGROSORT AI",
-    "shortDescription": "AI-assisted robotic fruit sorting system combining computer vision, web control, ESP32 communication, and physical robotic manipulation.",
+    "shortDescription": "IoT-enabled robotic fruit-sorting platform built around a 4-DOF ESP32 robotic arm, conveyor system, web control interface, and computer-vision pipeline.",
     "categories": ["AI / ML", "COMPUTER VISION", "ROBOTICS", "HARDWARE / IOT"],
     "status": "active_development",
     "statusLabel": "HARDWARE + CV // ACTIVE",
     "image": {
-      "src": "assets/images/agrosort-ai.svg",
-      "alt": "AgroSort AI Robotic Fruit Sorting System",
+      "src": "assets/images/agrosort-ai.jpg",
+      "alt": "AgroSort AI 4-DOF ESP32 Robotic Arm Setup",
       "position": "center"
     },
     "year": "2026",
     "role": "Lead Robotics & AI Systems Engineer",
-    "technologies": ["ESP32", "4-DOF ARM", "Python", "TensorFlow", "OpenCV", "Flask", "HTTP", "WebSockets", "FreeRTOS"],
-    "highlight": "Designed event-driven sorting workflow solving duplicate-frame counts; built web joystick, position saving, and Teach & Repeat replay.",
-    "result": "Fully operational physical robotic arm control with active computer vision pipeline integration.",
+    "technologies": ["ESP32", "4-DOF Arm", "L298N", "Python", "TensorFlow / Keras", "TFLite", "OpenCV", "Flask", "HTTP API", "WebSockets"],
+    "highlight": "Built 4-DOF ESP32 robotic arm with web virtual joystick, Teach & Repeat sequence recording, and 6-class CNN fruit classification model (~90% accuracy).",
+    "result": "4th-semester robotic manipulation and web-control foundation completed; AI vision pipeline trained (~90% accuracy); full autonomous integration under active development.",
     "links": {
-      "github": "https://www.github.com/WhiteDevil-06/",
-      "linkedin": "https://www.linkedin.com/in/rakshith-raghavendra-441b92315/"
+      "github": "https://github.com/WhiteDevil-06/iot-enabled-ai-robotic-arm",
+      "linkedin": "https://www.linkedin.com/posts/rakshith-raghavendra-441b92315_roboticsengineering-esp32-computervision-activity-7475599463755984896-61yI?utm_source=social_share_send&utm_medium=android_app&rcm=ACoAAFAWPPEB6sKh77MNgTrM7u01nVhmuzDfhE4&utm_campaign=copy_link"
     },
     "caseStudy": {
-      "overview": "AgroSort AI began with a physical robotic foundation. The 4-DOF ESP32 robotic arm was made controllable via a custom web interface featuring virtual joystick controls, keyboard shortcuts, position logging, and a Teach & Repeat sequence. The system was then evolved to incorporate automated computer vision classification.",
-      "problem": "A stationary fruit under the camera view triggered duplicate CNN classifications on consecutive video frames, causing redundant robotic pick attempts.",
-      "objective": "Engineer an event-driven physical sorting automation loop where the conveyor pauses during camera capture and classification, enabling precise single-attempt robotic actuation.",
-      "myContribution": "Built physical arm kinematics logic, developed Flask API bridge between vision models and ESP32 HTTP endpoints, created web dashboard with Teach & Repeat, and solved the duplicate-frame counting issue.",
+      "overview": "AgroSort AI is an IoT-enabled robotic fruit-sorting platform built around a 4-DOF ESP32 robotic arm, conveyor system, web-based control interface, and computer-vision pipeline. The project began with the physical robotic arm and its ESP32 control. A custom web control interface was then developed for remote arm operation, including virtual joystick control, keyboard control, position/state handling, and Teach & Repeat functionality. A CNN-based fruit-classification pipeline was subsequently developed as the AI component. The AI pipeline was developed separately and integration with the physical sorting loop remained an ongoing part of the project rather than being completely finished.",
+      "problem": "How can a low-cost robotic system combine physical manipulation, conveyor-based material handling, web control, and computer vision to automate fruit sorting? During AI development, an additional integration problem emerged: a stationary fruit remained visible across consecutive camera frames, causing the vision pipeline to repeatedly classify the same physical fruit, creating the possibility of multiple sorting triggers for one object.",
+      "objective": "Develop a prototype capable of controlling a 4-DOF robotic arm, controlling a conveyor, remotely operating the system through a web interface, recording/replaying arm positions/sequences, developing a vision-based fruit classification pipeline (~90% validation accuracy across 6 classes), and connecting the classification result to physical sorting.",
+      "myContribution": "Developed and integrated the ESP32-based robotic-arm control system, web-based arm/conveyor control, and Teach & Repeat functionality; developed the CNN-based fruit-classification pipeline and worked on the communication/integration layer between computer vision and the physical ESP32 system; investigated duplicate-frame classification and hardware/software integration issues.",
       "system": [
-        "Conveyor Motion → Optical Trigger → Conveyor Stop → Image Capture → CNN Inference (Flask) → Sorting Decision → ESP32 HTTP Command → Robotic Arm Actuation → Conveyor Resumes"
+        "Hardware & Web Control: Web Control Center → (HTTP) → ESP32 (Wi-Fi AP) → 4-DOF Robotic Arm (Base GPIO 5, Shoulder GPIO 16, Elbow GPIO 17, Claw GPIO 18) + Conveyor (L298N Driver)",
+        "Separate AI Pipeline: USB Webcam → OpenCV Preprocessing → CNN Classification (6 Fruit-Condition Classes) → Classification Result → Integration Layer → ESP32 HTTP"
       ],
       "development": [
-        "Built ESP32 Wi-Fi Access Point mode firmware for low-latency web dashboard interaction.",
-        "Integrated dual-core FreeRTOS tasks to separate servo PWM generation from HTTP packet parsing."
+        "Phase 1 — Physical arm: 4-DOF robotic arm controlled using ESP32 (Base GPIO 5, Shoulder GPIO 16, Elbow GPIO 17, Claw GPIO 18).",
+        "Phase 2 — Manual control: Web interface featuring virtual joystick, keyboard controls, individual joint control, and state representation.",
+        "Phase 3 — Teach & Repeat: Sequence recording and replay with Bin A / Bin B sequence storage.",
+        "Phase 4 — Conveyor integration: Conveyor control via ESP32 and L298N driver with web endpoints (/conveyor/start, /stop, /reverse, /speed).",
+        "Phase 5 — AI vision: Trained 6-class CNN pipeline (Fresh/Rotten Apple, Grape, Strawberry) reaching ~90% validation accuracy, exported to final_model.keras and model.tflite.",
+        "Phase 6 — Integration & Debugging: Connecting perception, classification, decision, and actuation without duplicate object triggers."
       ],
       "challenges": [
-        "PWM motor noise causing Wi-Fi dropouts on ESP32 under load",
-        "Duplicate frame inferences on stationary items"
+        "ESP32 Wi-Fi instability was observed during motor/servo operation under battery power. Power distribution, motor interference, and load-related behavior were investigated.",
+        "A stationary fruit remaining visible across consecutive camera frames caused repeated CNN classification events.",
+        "Connecting AI classification results across perception, application logic, network API, ESP32 controller, and physical robotic actuation."
       ],
       "decisions": [
-        "Designed event-driven start-stop conveyor control loop to guarantee exactly 1 classification per item",
-        "Added decoupling capacitors and separate power rails for logic vs motors"
+        "Selected ESP32 as embedded controller for servo PWM, conveyor driver, Wi-Fi AP, and HTTP API interface.",
+        "Developed browser-based control center for remote HTTP-to-ESP32 execution instead of relying only on physical controls.",
+        "Chosen CNN approach with a focused 6-class fruit-condition scope rather than a massive multi-fruit model.",
+        "Separated AI perception (laptop/computer) from physical hardware control (ESP32) rather than forcing on-device ESP32 inference."
       ],
       "results": [
-        "Achieved reliable remote web control and Teach & Repeat execution",
-        "Eliminated 100% of duplicate-frame classification errors using state-machine conveyor gating"
+        "Verified 4-DOF ESP32 robotic arm control, web-based virtual joystick, keyboard controls, and Teach & Repeat sequence replay.",
+        "Verified ESP32 Wi-Fi AP architecture and HTTP-based browser-to-ESP32 communication.",
+        "Trained 6-class CNN model achieving ~90% validation accuracy, exported to .keras and .tflite.",
+        "Conveyor control architecture integrated via L298N driver."
       ],
-      "currentState": "Active Development / Continuation.",
-      "lessons": "A progressive robotics system that evolved from embedded robotic control into AI-assisted physical automation. Bridging physical hardware with web AI requires low-latency event-driven API architecture."
+      "currentState": "ACTIVE DEVELOPMENT — 4th-semester robotic manipulation and web-control foundation completed; AI vision developed; full autonomous integration remains under development and the project is continuing into the next semester.",
+      "lessons": "The project evolved from direct ESP32 robotic-arm control into a larger hardware–software–AI system. Building the physical control layer first exposed practical issues in servo behavior, power, communication reliability, and command handling. Adding computer vision introduced a second class of problems involving dataset quality, model behavior, repeated frame inference, and the boundary between AI decisions and physical actuation. The project demonstrated that integrating AI with physical robotics is substantially more complex than developing either component independently."
     }
   },
   {
     "id": "sentinel-sast",
     "title": "SENTINEL SAST ENGINE",
-    "shortDescription": "AI-powered Static Application Security Testing (SAST) system detecting vulnerable Python methods without code execution.",
+    "shortDescription": "AI-assisted Static Application Security Testing (SAST) engine analyzing Python code using TF-IDF, structural metrics, and security heuristics.",
     "categories": ["CYBERSECURITY", "AI / ML", "STATIC ANALYSIS", "SOFTWARE ENGINEERING"],
     "status": "completed",
-    "statusLabel": "CYBERSECURITY + AI // VERIFIED",
+    "statusLabel": "CYBERSECURITY + AI // COMPLETED",
     "image": {
-      "src": "assets/images/hardwarelab-os.svg",
-      "alt": "Sentinel SAST Security Analysis Interface",
+      "src": "assets/images/sentinel-sast.jpg",
+      "alt": "Sentinel AI-Powered Python Vulnerability Detection Dashboard",
       "position": "center"
     },
     "year": "2026",
     "role": "ML & Security Systems Developer",
-    "technologies": ["Python", "Scikit-learn", "Flask", "TF-IDF", "CVEFixes v1.0.7", "AST", "Pytest"],
-    "highlight": "Engineered feature fusion combining TF-IDF, NLOC, cyclomatic complexity, nesting depth, and security guardrails on CVEFixes v1.0.7.",
-    "result": "Trained calibrated Logistic Regression model detecting vulnerabilities across uploaded files, pasted code, and GitHub repos.",
+    "technologies": ["Python", "Scikit-learn", "Flask", "Word TF-IDF", "CVEFixes", "Code Metrics", "Pytest"],
+    "highlight": "Engineered structural code metrics (NLOC, complexity, nesting depth), security heuristics, and feature fusion with Word TF-IDF on CVEFixes data.",
+    "result": "Trained calibrated Logistic Regression model with 92.50% vulnerability recall and developed Flask code & GitHub repository scanning endpoints.",
     "links": {
-      "github": "https://www.github.com/WhiteDevil-06/",
-      "linkedin": "https://www.linkedin.com/in/rakshith-raghavendra-441b92315/"
+      "github": "https://github.com/WhiteDevil-06/ai-code-vulnerability-detection-engine",
+      "linkedin": "https://www.linkedin.com/posts/rakshith-raghavendra-441b92315_artificialintelligence-machinelearning-cybersecurity-activity-7481714164504129536-od0E?utm_source=social_share_send&utm_medium=android_app&rcm=ACoAAFAWPPEB6sKh77MNgTrM7u01nVhmuzDfhE4&utm_campaign=copy_link"
     },
     "caseStudy": {
-      "overview": "Sentinel is an AI-assisted static analysis security engine built to analyze Python source code for potential security vulnerabilities without running the code. It scans pasted code, uploaded files, and entire GitHub repositories.",
-      "problem": "High false-positive rates when using generic machine learning classifiers on complex nested dynamic execution blocks (e.g. eval(), exec(), raw SQL queries).",
-      "objective": "Build a multi-layered SAST engine combining statistical code representations (TF-IDF) with structural AST complexity metrics and static security guardrails.",
-      "myContribution": "Engineered AST complexity metrics (NLOC, cyclomatic complexity, token count, nesting depth), trained Logistic Regression classifier on CVEFixes v1.0.7, added security guardrails, and developed Flask scanning endpoints.",
+      "overview": "Sentinel is an AI-assisted Static Application Security Testing (SAST) engine designed to analyze Python source code for potential security vulnerabilities without executing the code. It supports pasted code, uploaded Python files, and multi-file GitHub repositories.",
+      "problem": "Generic ML-based code classification can miss security-specific patterns and may produce false positives when analyzing complex source code. Sentinel addresses this by combining statistical code features with structural metrics and security-specific heuristics.",
+      "objective": "Build a hybrid SAST engine that combines Word TF-IDF representations with structural code metrics and security heuristics to detect potentially vulnerable Python code.",
+      "myContribution": "Engineered structural code metrics, contributed to the Logistic Regression ML pipeline using CVEFixes data, implemented security heuristics and guardrails, and developed Flask code and GitHub scanning endpoints.",
       "system": [
-        "Python Source → AST Preprocessing → TF-IDF + Structural Metrics + Security Heuristics → Feature Fusion → Logistic Regression → Calibrated Threshold → Security Guardrail → Classification & Recommendation"
+        "Python Source → Code Preprocessing → Word TF-IDF + Structural Metrics + Security Heuristics → Feature Fusion → Logistic Regression → Calibrated Probability Threshold → Security Guardrail → Vulnerability Classification → CWE Mapping & Recommendation"
       ],
       "development": [
-        "Extracted vulnerability data from CVEFixes v1.0.7 dataset.",
-        "Constructed custom AST visitor classes in Python to extract structural metrics.",
-        "Integrated CWE mapping rules for detected security smells."
+        "Extracted and prepared vulnerability data from the CVEFixes dataset.",
+        "Implemented Python source-code preprocessing and feature extraction.",
+        "Engineered structural metrics including NLOC, cyclomatic complexity, token count, and nesting depth.",
+        "Added Word TF-IDF features and security-specific heuristic indicators.",
+        "Compared Random Forest and Logistic Regression model variants and selected the best-performing validation model.",
+        "Added probability-threshold calibration and deterministic security guardrails.",
+        "Integrated the analysis engine with Flask and GitHub repository scanning."
       ],
       "challenges": [
-        "Statistical TF-IDF models alone failed on structural pattern changes",
-        "High false positive rates on dynamic code blocks"
+        "Text-based features alone cannot represent all structural and security-specific characteristics of source code.",
+        "The ML classifier produced false positives, requiring security-specific heuristic verification.",
+        "Vulnerability detection required balancing recall against precision through probability-threshold calibration."
       ],
       "decisions": [
-        "Fused structural static analysis metrics (NLOC, complexity, nesting) with TF-IDF vectors",
-        "Applied deterministic security guardrails to enforce verification on high-risk functions"
+        "Combined Word TF-IDF features with structural code metrics and security heuristics instead of relying on source-code text alone.",
+        "Compared Random Forest and Logistic Regression variants and selected Word TF-IDF + Logistic Regression based on validation performance.",
+        "Applied StandardScaler to the numerical structural features before feature fusion.",
+        "Added a calibrated decision threshold to prioritize vulnerability recall.",
+        "Added deterministic security guardrails to verify high-risk ML predictions and reduce unsupported vulnerability classifications."
       ],
       "results": [
-        "Demonstrated significant reduction in false positives compared to pure TF-IDF baseline",
-        "Scanned multi-file GitHub repositories with automated CWE categorization"
+        "Evaluated the final vulnerability classifier using Accuracy, Precision, Recall, F1-score, ROC-AUC and PR-AUC.",
+        "Reported Recall: 92.50% and F1-score: 0.6416 at the evaluated operating point (Accuracy: 48.33%, Precision: 49.12%, ROC-AUC: 0.5298, PR-AUC: 0.5307).",
+        "The results showed a strong vulnerability-detection bias, with high recall accompanied by a substantial false-positive rate.",
+        "Implemented multi-file GitHub repository scanning with vulnerability-type identification and CWE mapping."
       ],
-      "currentState": "Academic implementation completed.",
-      "lessons": "ML prediction alone was not enough. The system needed engineering guardrails around the model. Demonstrates model + software + security reasoning."
+      "currentState": "Academic implementation completed. The final system integrates ML-based vulnerability detection, structural code analysis, security heuristics, threshold calibration, and Flask-based code and GitHub repository scanning.",
+      "lessons": "ML prediction alone was not sufficient for security-oriented code analysis. The project demonstrated the importance of combining machine learning with domain-specific features, deterministic security guardrails, threshold calibration, and software integration. The major lesson was that building a practical AI system requires engineering around the model, not just training the model."
     }
   },
   {
@@ -154,8 +174,8 @@
     "status": "completed",
     "statusLabel": "DAA + WEB // COMPLETED",
     "image": {
-      "src": "assets/images/hardwarelab-os.svg",
-      "alt": "Huffman vs Shannon-Fano Algorithm Arena Visualizer",
+      "src": "assets/images/huffman-shannon-fano.png",
+      "alt": "DAA Compression System - Huffman vs Shannon-Fano Arena",
       "position": "center"
     },
     "year": "2026",
@@ -164,7 +184,8 @@
     "highlight": "Built interactive tree visualizers, code dictionary generators, and microsecond performance benchmarking arena.",
     "result": "Created interactive educational web platform demonstrating greedy optimal coding vs top-down recursive partitioning.",
     "links": {
-      "github": "https://www.github.com/WhiteDevil-06/"
+      "github": "https://github.com/WhiteDevil-06/huffman-coding-compression-system",
+      "linkedin": "https://lnkd.in/p/dnnqyRSG"
     },
     "caseStudy": {
       "overview": "Developed an interactive web-based algorithm arena comparing Huffman coding (greedy, bottom-up priority queue) against Shannon-Fano coding (top-down recursive partitioning).",
