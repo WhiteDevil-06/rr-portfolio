@@ -126,7 +126,7 @@
     "status": "completed",
     "statusLabel": "RESEARCH // COMPLETED",
     "image": {
-      "src": "assets/images/embedded-lab.svg",
+      "src": "assets/images/fbg-sensor-pinn.svg",
       "alt": "FBG Sensor Physics Informed Machine Learning Setup",
       "position": "center"
     },
