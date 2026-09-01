@@ -565,8 +565,8 @@ body.cursor-clicking .cursor-ring {
    5. HERO SECTION
    -------------------------------------------------------------------------- */
 .hero-section {
-    padding-top: calc(var(--header-height) + 120px);
-    padding-bottom: 120px;
+    padding-top: calc(var(--header-height) + 40px);
+    padding-bottom: 40px;
     display: flex;
     align-items: center;
     position: relative;
