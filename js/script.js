@@ -213,7 +213,7 @@ function initHeaderScroll() {
  */
 function initMobileNav() {
     const toggleBtn = document.getElementById("mobile-toggle");
-    const overlay = document.getElementById("mobile-overlay");
+    const overlay = document.getElementById("mobile-nav-overlay") || document.getElementById("mobile-overlay");
     const closeBtn = document.getElementById("mobile-close");
     const links = document.querySelectorAll(".mobile-link");
 
@@ -353,6 +353,7 @@ function initProjectModal() {
         modal.classList.remove("is-open");
         modal.setAttribute("aria-hidden", "true");
         document.body.style.overflow = "";
+        document.body.classList.remove("is-modal-active");
     };
 
     if (backdrop) backdrop.addEventListener("click", closeModal);
@@ -492,6 +493,7 @@ function openProjectModal(id) {
     modal.classList.add("is-open");
     modal.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
+    document.body.classList.add("is-modal-active");
 }
 
 /**
@@ -548,23 +550,24 @@ async function initIncidentsGrid() {
             <h3 class="incident-title">${inc.title}</h3>
             
             <div class="incident-step">
-                <span class="incident-step-label">SYMPTOM & PROBLEM:</span>
+                <span class="incident-step-label">01 // OBSERVED SYMPTOM & FAILURE:</span>
                 ${inc.symptom || inc.problem}
             </div>
 
             <div class="incident-step">
-                <span class="incident-step-label">ROOT CAUSE & FIX:</span>
+                <span class="incident-step-label">02 // ROOT CAUSE & RESOLUTION:</span>
                 ${inc.fix}
             </div>
 
             ${inc.lesson ? `
             <div class="incident-step" style="border-top: 1px dashed var(--border); padding-top: 8px;">
-                <span class="incident-step-label">ENGINEERING LESSON:</span>
+                <span class="incident-step-label">03 // SYSTEM ENGINEERING LESSON:</span>
                 ${inc.lesson}
             </div>` : ''}
 
-            <div class="mono-accent" style="margin-top:auto; font-size:0.75rem; padding-top:8px;">
-                STATUS: ${inc.status || 'RESOLVED / POST-MORTEM'}
+            <div class="incident-status-bar" style="margin-top:auto; font-size:0.75rem; padding-top:10px; border-top:1px solid var(--border); display:flex; align-items:center; gap:6px;">
+                <span style="width:6px; height:6px; background-color:var(--accent); border-radius:50%; display:inline-block; box-shadow:0 0 6px var(--accent);"></span>
+                <span class="mono-accent font-bold" style="letter-spacing:0.05em;">STATUS: ${inc.status || 'POST-MORTEM COMPLETED'}</span>
             </div>
         </div>
     `).join("");
@@ -582,8 +585,8 @@ async function initCapabilitiesGrid() {
     const data = await loadJSON("data/capabilities.json");
     if (!data) return;
 
-    grid.innerHTML = data.map((cap) => `
-        <div class="capability-card reveal-element">
+    grid.innerHTML = data.map((cap, idx) => `
+        <div class="capability-card reveal-element" data-index="${idx}">
             <div class="cap-header-block" style="display:flex; flex-direction:column; gap:0.4rem;">
                 <div class="card-meta">
                     <span class="mono-accent" style="font-size: 1.1rem; font-weight: 700;">${cap.number || ''} // ${cap.title}</span>
@@ -598,13 +601,88 @@ async function initCapabilitiesGrid() {
             <ul class="cap-list" style="margin-top: 0.6rem; margin-bottom: 0.5rem;">
                 ${(cap.capabilities || cap.evidence || []).map((e) => `<li class="cap-item" style="font-size:0.8rem; line-height:1.4;">${e}</li>`).join("")}
             </ul>
-            <div class="project-tech-list" style="margin-top:auto; padding-top: 0.8rem;">
+            <div class="project-tech-list" style="margin-top: auto; padding-top: 0.8rem;">
                 ${cap.technologies.map((t) => `<span class="tech-tag">${t}</span>`).join("")}
             </div>
         </div>
     `).join("");
 
     if (typeof initScrollObserver === "function") initScrollObserver();
+    initDNAPulseLoop(grid);
+}
+
+/**
+ * Option 1: Sequential DNA Pulse Loop Animation for Engineering DNA Cards
+ */
+function initDNAPulseLoop(grid) {
+    const cards = grid.querySelectorAll(".capability-card");
+    if (!cards.length) return;
+
+    let currentIndex = 0;
+    let isHovered = false;
+    let intervalId = null;
+
+    function stepPulse() {
+        if (isHovered) return;
+
+        cards.forEach((card, idx) => {
+            if (idx === currentIndex) {
+                card.classList.add("is-active-pulse");
+            } else {
+                card.classList.remove("is-active-pulse");
+            }
+        });
+
+        currentIndex = (currentIndex + 1) % cards.length;
+    }
+
+    function startLoop() {
+        if (!intervalId) {
+            stepPulse();
+            intervalId = setInterval(stepPulse, 2500);
+        }
+    }
+
+    function stopLoop() {
+        if (intervalId) {
+            clearInterval(intervalId);
+            intervalId = null;
+        }
+    }
+
+    cards.forEach((card, idx) => {
+        card.addEventListener("mouseenter", () => {
+            isHovered = true;
+            stopLoop();
+            cards.forEach((c) => c.classList.remove("is-active-pulse"));
+            card.classList.add("is-active-pulse");
+        });
+
+        card.addEventListener("mouseleave", () => {
+            isHovered = false;
+            currentIndex = (idx + 1) % cards.length;
+            startLoop();
+        });
+    });
+
+    const section = document.getElementById("capabilities");
+    if (section && "IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        startLoop();
+                    } else {
+                        stopLoop();
+                    }
+                });
+            },
+            { threshold: 0.1 }
+        );
+        observer.observe(section);
+    } else {
+        startLoop();
+    }
 }
 
 /**

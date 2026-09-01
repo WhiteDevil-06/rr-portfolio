@@ -57,11 +57,12 @@
 
             <nav class="nav-menu" id="nav-menu" aria-label="Primary Navigation">
                 <ul class="nav-list">
-                    <li><a href="#work" class="nav-link"><span class="nav-num">01</span> WORK</a></li>
-                    <li><a href="#failures" class="nav-link"><span class="nav-num">02</span> DEBUG</a></li>
-                    <li><a href="#capabilities" class="nav-link"><span class="nav-num">03</span> SKILLS</a></li>
-                    <li><a href="#about" class="nav-link"><span class="nav-num">04</span> ABOUT</a></li>
-                    <li><a href="#contact" class="nav-link"><span class="nav-num">05</span> CONTACT</a></li>
+                    <li><a href="#manifesto" class="nav-link"><span class="nav-num">01</span> PHILOSOPHY</a></li>
+                    <li><a href="#work" class="nav-link"><span class="nav-num">02</span> WORK</a></li>
+                    <li><a href="#failures" class="nav-link"><span class="nav-num">03</span> INCIDENTS</a></li>
+                    <li><a href="#building" class="nav-link"><span class="nav-num">04</span> TELEMETRY</a></li>
+                    <li><a href="#about" class="nav-link"><span class="nav-num">05</span> ABOUT</a></li>
+                    <li><a href="#contact" class="nav-link"><span class="nav-num">06</span> CONTACT</a></li>
                 </ul>
             </nav>
 
@@ -89,10 +90,10 @@
                 <button class="mobile-close" id="mobile-close" aria-label="Close menu">&times;</button>
             </div>
             <ul class="mobile-nav-list">
-                <li><a href="#work" class="mobile-link">01 / WORK</a></li>
-                <li><a href="#lab" class="mobile-link">02 / THE LAB</a></li>
-                <li><a href="#failures" class="mobile-link">03 / WHAT BROKE</a></li>
-                <li><a href="#capabilities" class="mobile-link">04 / CAPABILITIES</a></li>
+                <li><a href="#manifesto" class="mobile-link">01 / PHILOSOPHY</a></li>
+                <li><a href="#work" class="mobile-link">02 / WORK</a></li>
+                <li><a href="#failures" class="mobile-link">03 / INCIDENTS</a></li>
+                <li><a href="#building" class="mobile-link">04 / TELEMETRY</a></li>
                 <li><a href="#about" class="mobile-link">05 / ABOUT</a></li>
                 <li><a href="#contact" class="mobile-link">06 / CONTACT</a></li>
                 <li><a href="resume.html" class="mobile-link" style="color:var(--accent);">07 / RESUME PAGE →</a></li>
@@ -310,31 +311,12 @@
             </div>
         </section>
 
-        <!-- CAPABILITIES MAP / SKILLS SECTION -->
-        <section class="capabilities-section section-padding" id="capabilities">
-            <div class="container">
-                <div class="section-header reveal-element">
-                    <div class="header-titles">
-                        <span class="mono-accent">04 // ENGINEERING DNA</span>
-                        <h2 class="section-title">ENGINEERING DNA</h2>
-                    </div>
-                    <p class="header-desc">
-                        The engineering patterns that keep appearing across the systems I build.
-                    </p>
-                </div>
-
-                <div class="capabilities-grid" id="capabilities-grid">
-                    <!-- Populated dynamically via JS -->
-                </div>
-            </div>
-        </section>
-
         <!-- CURRENTLY BUILDING TELEMETRY -->
         <section class="building-section section-padding" id="building">
             <div class="container">
                 <div class="section-header reveal-element">
                     <div class="header-titles">
-                        <span class="mono-accent">05 — LIVE TELEMETRY</span>
+                        <span class="mono-accent">04 — LIVE TELEMETRY</span>
                         <h2 class="section-title">CURRENTLY BUILDING</h2>
                     </div>
                     <p class="header-desc">
@@ -353,7 +335,7 @@
             <div class="container">
                 <div class="section-header reveal-element">
                     <div class="header-titles">
-                        <span class="mono-accent">06 — PERSPECTIVE</span>
+                        <span class="mono-accent">05 — PERSPECTIVE</span>
                         <h2 class="section-title">ABOUT ME</h2>
                     </div>
                 </div>
@@ -397,7 +379,7 @@
             <div class="container">
                 <div class="contact-card reveal-element">
                     <div class="contact-header">
-                        <span class="mono-accent">07 / GET IN TOUCH</span>
+                        <span class="mono-accent">06 / GET IN TOUCH</span>
                     </div>
 
                     <h2 class="contact-headline">
@@ -464,6 +446,19 @@
             </div>
         </div>
     </footer>
+
+    <!-- Project Detail Modal Overlay -->
+    <div class="project-modal" id="project-modal" aria-hidden="true">
+        <div class="modal-backdrop" id="modal-backdrop"></div>
+        <div class="modal-wrapper">
+            <div class="modal-window">
+                <button class="modal-close-btn" id="modal-close-btn" aria-label="Close modal">&times;</button>
+                <div class="modal-content" id="modal-content">
+                    <!-- Populated dynamically via JS -->
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- JavaScript Application Logic -->
     <script src="js/data-loader.js"></script>

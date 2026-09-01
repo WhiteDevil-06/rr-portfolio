@@ -7,7 +7,7 @@
     "symptom": "During the initial vision-to-robot pipeline, the conveyor and camera operated continuously. When a fruit remained within the camera's field of view for multiple frames, the CNN could classify the same physical fruit repeatedly. This resulted in duplicate inference events for a single item and could trigger unnecessary or repeated sorting actions.",
     "fix": "The vision pipeline was treating every qualifying camera frame as a new classification event instead of distinguishing between a new object arrival and a previously observed object. The system was redesigned around an event-driven workflow: an optical sensor detects the arrival of an item, the conveyor pauses, a single classification is performed, the result is passed to the sorting logic, the robotic arm performs the required action, and the conveyor resumes.",
     "lesson": "A real-world object and a video frame are not the same thing. When computer vision controls physical hardware, inference must be tied to system events and physical state, rather than simply processing frames continuously.",
-    "status": "RESOLVED / POST-MORTEM"
+    "status": "POST-MORTEM COMPLETED"
   },
   {
     "id": "debug-002",
@@ -17,7 +17,7 @@
     "symptom": "The CNN could successfully identify the fruit, but that prediction alone did not produce a physical sorting action. The classification result had to travel across multiple layers — the vision pipeline, application logic, communication layer, ESP32 controller and finally the robotic arm. Problems at the boundaries between these layers could leave the AI functioning correctly while the physical system failed to respond.",
     "fix": "The system was structured with a clear separation between perception, decision-making and actuation. Flask was used as the communication bridge between the Python-based AI pipeline and the ESP32-controlled hardware. The resulting architecture became: Camera → CNN Classification → Decision Logic → Flask / API → ESP32 → 4-DOF Robotic Arm. This made the prediction-to-action path explicit and allowed each layer to be tested independently.",
     "lesson": "An intelligent model is only one component of an intelligent system. The difficult part often begins after the prediction — reliably converting an inference into a deterministic physical action.",
-    "status": "RESOLVED / POST-MORTEM"
+    "status": "POST-MORTEM COMPLETED"
   },
   {
     "id": "debug-003",
@@ -27,7 +27,7 @@
     "symptom": "The early pipeline was designed primarily around whether the CNN could correctly classify an item. However, the physical system had its own state: the conveyor could be moving, an object could be entering the sensing region, the robotic arm could still be completing a previous operation, or the system could be waiting for the next item. A correct prediction made at the wrong physical moment could therefore still produce incorrect system behaviour.",
     "fix": "The control flow was shifted from a purely continuous inference model toward coordinated system states. Object detection became the trigger for the next stage rather than allowing unrestricted inference to drive the hardware. The resulting sequence became: WAIT → OBJECT DETECTED → STOP CONVEYOR → CLASSIFY → DECIDE → SORT → RESUME → WAIT. This connected the AI pipeline to the actual operating state of the conveyor and robotic arm.",
     "lesson": "For robotics, prediction accuracy is not the whole problem. Timing, synchronization and state management determine whether a correct prediction becomes a correct physical outcome.",
-    "status": "RESOLVED / POST-MORTEM"
+    "status": "POST-MORTEM COMPLETED"
   },
   {
     "id": "debug-004",
@@ -37,7 +37,7 @@
     "symptom": "The vulnerability classifier could flag code patterns that were structurally unusual but not necessarily security vulnerabilities.",
     "fix": "The ML prediction was combined with structural code metrics, calibrated thresholds, and deterministic security heuristics to create a verification layer around the statistical prediction.",
     "lesson": "An ML classifier should not automatically become the final authority when the problem has deterministic structural constraints.",
-    "status": "RESOLVED / POST-MORTEM"
+    "status": "POST-MORTEM COMPLETED"
   },
   {
     "id": "debug-005",
@@ -47,7 +47,7 @@
     "symptom": "A simplistic comparison could lead to the assumption that Huffman must produce a numerically better result for every input.",
     "fix": "The project introduced controlled edge cases and distinguished between guaranteed optimality and observed output on a particular dataset.",
     "lesson": "Huffman guarantees optimal prefix coding; that does not mean every arbitrary comparison should be described as 'Huffman always wins.'",
-    "status": "RESOLVED / POST-MORTEM"
+    "status": "POST-MORTEM COMPLETED"
   },
   {
     "id": "debug-006",
@@ -57,7 +57,7 @@
     "symptom": "The first Linked List testing stage failed because Python could not correctly resolve the project module/package import.",
     "fix": "The project structure and import configuration were corrected so the Linked List implementation could be tested independently.",
     "lesson": "Before building a large DSA system, make the project structure itself reliable enough that individual modules can be developed and tested independently.",
-    "status": "RESOLVED / POST-MORTEM"
+    "status": "POST-MORTEM COMPLETED"
   },
   {
     "id": "debug-007",
@@ -67,7 +67,7 @@
     "symptom": "The initial Sorting Visualizer direction could not satisfy the faculty requirement for meaningful use of more than six data structures.",
     "fix": "Instead of forcing additional data structures into a weak application, the problem itself was redesigned into an emergency healthcare workflow where different operations naturally map to different structures.",
     "lesson": "Data structures should serve the problem — not the other way around.",
-    "status": "RESOLVED / POST-MORTEM"
+    "status": "POST-MORTEM COMPLETED"
 
   },
   {
@@ -78,7 +78,7 @@
     "symptom": "The lifted mass could not be held and released reliably during the gravitational-energy cycle, forcing changes to the original mechanical locking approach.",
     "fix": "The initial stopper mechanism was unreliable for controlled operation. The design evolved through a separate stopper motor and later a 3D-printed stopper before moving toward the NEMA17-based lifting/control mechanism.",
     "lesson": "Mechanical reliability has to be designed into the energy-conversion system; software control cannot compensate for an unstable physical mechanism.",
-    "status": "RESOLVED / POST-MORTEM"
+    "status": "POST-MORTEM COMPLETED"
   },
   {
     "id": "debug-010",
@@ -88,6 +88,6 @@
     "symptom": "Different lifted masses produced substantially different electrical behaviour, with lighter configurations showing unstable/noisy output and heavier loads producing more stable documented output.",
     "fix": "The system was tested across multiple loads rather than assuming a single operating point. The 1 kg configuration produced the most stable documented output and became the primary configuration for further analysis.",
     "lesson": "A prototype's behaviour cannot be inferred from one successful test. Load-dependent experiments exposed the actual operating limitations of the system.",
-    "status": "RESOLVED / POST-MORTEM"
+    "status": "POST-MORTEM COMPLETED"
   }
 ]

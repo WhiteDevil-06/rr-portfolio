@@ -29,7 +29,7 @@
       "Sensor Integration",
       "Embedded Control"
     ],
-    "technologies": ["ESP32", "Arduino", "Embedded C/C++", "FreeRTOS", "4-DOF Kinematics", "L298N", "DRV8825"]
+    "technologies": ["ESP32", "Arduino UNO", "Raspberry Pi", "Jetson Nano"]
   },
   {
     "id": "intelligence",
@@ -54,7 +54,7 @@
     "label": "SYSTEMS",
     "title": "SYSTEMS",
     "description": "Connecting software, hardware, data and interfaces into systems that work end-to-end.",
-    "pattern": "component → interface → workflow → system",
+    "pattern": "component → interface → system",
     "capabilities": [
       "API Design",
       "Embedded Communication",

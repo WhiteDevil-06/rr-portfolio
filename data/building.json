@@ -1,11 +1,11 @@
 [
   {
     "id": "build-001",
-    "title": "AGROSORT AI V2 — EVENT-DRIVEN HARDWARE REFACTOR",
+    "title": "AGROSORT AI — ROBOTIC PLATFORM EXTENSION",
     "status": "active_development",
     "statusLabel": "HARDWARE + CV // ACTIVE",
-    "phase": "Event-Driven Conveyor Integration & Servo Smoothing",
-    "description": "Refactoring the ESP32 dual-core FreeRTOS task architecture to synchronize optical conveyor triggers with Flask CNN inference endpoints.",
+    "phase": "4WD Mobile Platform & AI Perception Integration",
+    "description": "Extending the existing 4-DOF ESP32 robotic arm with mobility and AI-based visual perception. The next development phase will explore a 4WD mobile platform and computer-vision capabilities, with the eventual goal of enabling the robot to perceive its environment, make decisions, navigate, and interact with physical objects.",
     "projectRef": "agrosort-ai"
   }
 ]
