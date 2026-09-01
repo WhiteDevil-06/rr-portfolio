@@ -538,23 +538,14 @@ function toggleLabEntry(headerEl) {
  * 10. WHAT BROKE INCIDENTS GRID (Driven by data/debug.json)
  */
 async function initIncidentsGrid() {
-    const btn = document.getElementById("incident-summary-btn");
-    if (!btn) return;
+    const grid = document.getElementById("incidents-grid");
+    if (!grid) return;
 
-    btn.addEventListener("click", async () => {
-        const data = await loadJSON("data/debug.json");
-        if (!data) return;
-        
-        openIncidentsModal(data);
-    });
-}
+    const data = await loadJSON("data/debug.json");
+    if (!data) return;
 
-function openIncidentsModal(data) {
-    const modal = document.getElementById("project-modal");
-    const content = document.getElementById("modal-content");
-    
-    const incidentsHtml = data.map((inc) => `
-        <div class="incident-card" style="margin-bottom: 1.5rem;">
+    grid.innerHTML = data.map((inc) => `
+        <div class="incident-card reveal-element">
             <span class="incident-tag">${inc.tag || `${inc.id.toUpperCase()} // ${inc.project.toUpperCase()}`}</span>
             <h3 class="incident-title">${inc.title}</h3>
             
@@ -574,28 +565,14 @@ function openIncidentsModal(data) {
                 ${inc.lesson}
             </div>` : ''}
 
-            <div class="incident-status-bar" style="margin-top:1rem; font-size:0.75rem; padding-top:10px; border-top:1px solid var(--border); display:flex; align-items:center; gap:6px;">
+            <div class="incident-status-bar" style="margin-top:auto; font-size:0.75rem; padding-top:10px; border-top:1px solid var(--border); display:flex; align-items:center; gap:6px;">
                 <span style="width:6px; height:6px; background-color:var(--accent); border-radius:50%; display:inline-block; box-shadow:0 0 6px var(--accent);"></span>
                 <span class="mono-accent font-bold" style="letter-spacing:0.05em;">STATUS: ${inc.status || 'POST-MORTEM COMPLETED'}</span>
             </div>
         </div>
     `).join("");
 
-    content.innerHTML = `
-        <div class="modal-header-block" style="margin-bottom: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 1.5rem;">
-            <span class="modal-tag">INCIDENT LOGBOOK</span>
-            <h2 class="modal-title" style="margin-top:0.5rem;">SYSTEM POST-MORTEMS</h2>
-            <p class="modal-body-text" style="margin-top: 10px; color: var(--text-secondary);">Engineering isn't the absence of failure. It's what happens after it. Real post-mortems from hardware, machine learning models, and security parsers.</p>
-        </div>
-        <div class="modal-incidents-list" style="max-height: 60vh; overflow-y: auto; padding-right: 10px;">
-            ${incidentsHtml}
-        </div>
-    `;
-
-    modal.classList.add("is-open");
-    modal.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-    document.body.classList.add("is-modal-active");
+    if (typeof initScrollObserver === "function") initScrollObserver();
 }
 
 /**
