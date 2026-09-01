@@ -214,7 +214,7 @@ button {
     width: 100%;
     max-width: var(--container-max);
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 1rem;
 }
 
 .section-padding {
