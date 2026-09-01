@@ -553,7 +553,7 @@ async function initIncidentsGrid() {
     if (!data) return;
     
     grid.innerHTML = data.map((inc, index) => `
-        <swiper-slide class="incident-card reveal-element" onclick="openIncidentsModal(window.incidentsData, ${index})">
+        <div class="incident-card reveal-element" onclick="openIncidentsModal(window.incidentsData, ${index})">
             <span class="incident-tag">${inc.tag || `${inc.id.toUpperCase()} // ${inc.project.toUpperCase()}`}</span>
             <h3 class="incident-title">${inc.title}</h3>
             
@@ -566,7 +566,7 @@ async function initIncidentsGrid() {
                 <span style="width:6px; height:6px; background-color:var(--accent); border-radius:50%; display:inline-block; box-shadow:0 0 6px var(--accent);"></span>
                 <span class="mono-accent font-bold" style="letter-spacing:0.05em;">TAP TO READ FULL LOG</span>
             </div>
-        </swiper-slide>
+        </div>
     `).join("");
 
     // Store data globally for modal

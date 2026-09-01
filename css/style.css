@@ -594,11 +594,6 @@ body.cursor-clicking .cursor-ring {
     flex-direction: column;
 }
 
-.name-line {
-    white-space: nowrap;
-    display: inline-block;
-}
-
 .hero-right-content {
     display: flex;
     justify-content: flex-end;
@@ -2100,7 +2095,6 @@ body.is-modal-active .project-modal {
     line-height: 1;
     text-transform: uppercase;
     letter-spacing: -0.02em;
-    white-space: nowrap;
 }
 
 .resume-contact-bar {
@@ -2432,24 +2426,10 @@ body.is-modal-active .project-modal {
         gap: 1rem;
         align-items: flex-start;
     }
-    .resume-actions-group {
-        flex-direction: column;
-        width: 100%;
-    }
-    .resume-actions-group .btn {
-        width: 100%;
-        justify-content: center;
-    }
     .edu-header, .resume-project-header {
         flex-direction: column;
         align-items: flex-start;
         gap: 8px;
-    }
-    .meta-row {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 4px;
-        border-bottom: 1px solid var(--border);
     }
     .link-name {
         font-size: 0.85rem;
@@ -2685,24 +2665,31 @@ body.is-modal-active .project-modal {
         font-family: var(--font-mono);
     }
     
-    /* SWIPER CARDS (TINDER EFFECT) STYLES */
-    swiper-container {
-        width: 100%;
-        max-width: 320px;
-        height: auto;
-        padding-bottom: 1rem;
-        margin: 0 auto;
+    /* INCIDENT LOGBOOK CARD MOBILE - SCROLL SNAP CAROUSEL */
+    .incidents-grid {
+        display: flex !important;
+        flex-direction: row !important;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        scroll-snap-type: x mandatory;
+        gap: 15px;
+        padding-bottom: 20px;
+        margin-left: -20px;
+        margin-right: -20px;
+        padding-left: 20px;
+        padding-right: 20px;
     }
     
-    swiper-slide {
-        display: flex;
-        border-radius: 16px;
-        overflow: hidden;
+    .incidents-grid::-webkit-scrollbar {
+        display: none;
     }
     
     .incident-card {
-        min-width: 100%;
-        margin: 0;
+        min-width: 85vw;
+        border-radius: 16px;
+        scroll-snap-align: center;
+        flex-shrink: 0;
     }
     /* RESUME BENTO HEADER */
     .resume-hero-block > div:first-child {
