@@ -1498,10 +1498,49 @@ body.is-modal-active .project-modal {
     line-height: 1.5;
 }
 
-.incidents-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+.incident-summary-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border);
+    padding: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.incident-summary-card:hover, .incident-summary-card:focus {
+    background-color: var(--surface);
+    border-color: var(--accent-warm);
+    outline: none;
+}
+
+.summary-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 70%;
+}
+
+.summary-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.summary-desc {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+}
+
+.summary-action {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--accent-warm);
+}
+
+.incident-summary-card:hover .btn-arrow {
+    transform: translateX(6px);
 }
 
 .incident-card {
@@ -1511,14 +1550,7 @@ body.is-modal-active .project-modal {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    transition: background-color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
-    cursor: pointer;
-}
-
-.incident-card:hover {
-    border-color: var(--accent-warm);
-    background-color: var(--surface);
-    transform: translateY(-4px);
+    transition: border-color var(--transition-fast);
 }
 
 .incident-tag {
@@ -1962,8 +1994,6 @@ body.is-modal-active .project-modal {
     font-size: 1.1rem;
     font-weight: 700;
     color: var(--text-primary);
-    word-break: break-all;
-    overflow-wrap: break-word;
 }
 
 .contact-link-item:hover .link-name {
@@ -2111,11 +2141,6 @@ body.is-modal-active .project-modal {
     display: flex;
     align-items: center;
     gap: 6px;
-}
-
-.resume-contact-item a {
-    word-break: break-all;
-    overflow-wrap: break-word;
 }
 
 .resume-contact-item a:hover {
@@ -2426,14 +2451,6 @@ body.is-modal-active .project-modal {
         gap: 1rem;
         align-items: flex-start;
     }
-    .edu-header, .resume-project-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-    }
-    .link-name {
-        font-size: 0.85rem;
-    }
 }
 
 @media (max-width: 576px) {
@@ -2665,31 +2682,17 @@ body.is-modal-active .project-modal {
         font-family: var(--font-mono);
     }
     
-    /* INCIDENT LOGBOOK CARD MOBILE - SCROLL SNAP CAROUSEL */
-    .incidents-grid {
-        display: flex !important;
-        flex-direction: row !important;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        scroll-snap-type: x mandatory;
-        gap: 15px;
-        padding-bottom: 20px;
-        margin-left: -20px;
-        margin-right: -20px;
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-    
-    .incidents-grid::-webkit-scrollbar {
-        display: none;
-    }
-    
-    .incident-card {
-        min-width: 85vw;
+    /* INCIDENT LOGBOOK CARD MOBILE */
+    .incident-summary-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+        padding: 1.5rem;
         border-radius: 16px;
-        scroll-snap-align: center;
-        flex-shrink: 0;
+    }
+    
+    .summary-content {
+        max-width: 100%;
     }
     /* RESUME BENTO HEADER */
     .resume-hero-block > div:first-child {

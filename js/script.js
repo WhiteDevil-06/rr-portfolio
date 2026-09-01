@@ -130,18 +130,10 @@ function initCanvasGrid() {
  * 2. CUSTOM DUAL CURSOR ENGINE
  */
 function initCustomCursor() {
-    const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
     const dot = document.getElementById("cursor-dot");
     const ring = document.getElementById("cursor-ring");
 
     if (!dot || !ring) return;
-
-    if (isTouch) {
-        dot.remove();
-        ring.remove();
-        document.body.style.cursor = 'auto';
-        return;
-    }
 
     let mouseX = 0, mouseY = 0;
     let ringX = 0, ringY = 0;
@@ -546,36 +538,18 @@ function toggleLabEntry(headerEl) {
  * 10. WHAT BROKE INCIDENTS GRID (Driven by data/debug.json)
  */
 async function initIncidentsGrid() {
-    const grid = document.getElementById("incidents-grid");
-    if (!grid) return;
+    const btn = document.getElementById("incident-summary-btn");
+    if (!btn) return;
 
-    const data = await loadJSON("data/debug.json");
-    if (!data) return;
-    
-    grid.innerHTML = data.map((inc, index) => `
-        <div class="incident-card reveal-element" onclick="openIncidentsModal(window.incidentsData, ${index})">
-            <span class="incident-tag">${inc.tag || `${inc.id.toUpperCase()} // ${inc.project.toUpperCase()}`}</span>
-            <h3 class="incident-title">${inc.title}</h3>
-            
-            <div class="incident-step">
-                <span class="incident-step-label">01 // OBSERVED SYMPTOM & FAILURE:</span>
-                ${inc.symptom || inc.problem}
-            </div>
-
-            <div class="incident-status-bar" style="margin-top:auto; font-size:0.75rem; padding-top:10px; border-top:1px solid var(--border); display:flex; align-items:center; gap:6px;">
-                <span style="width:6px; height:6px; background-color:var(--accent); border-radius:50%; display:inline-block; box-shadow:0 0 6px var(--accent);"></span>
-                <span class="mono-accent font-bold" style="letter-spacing:0.05em;">TAP TO READ FULL LOG</span>
-            </div>
-        </div>
-    `).join("");
-
-    // Store data globally for modal
-    window.incidentsData = data;
-
-    if (typeof initScrollObserver === "function") initScrollObserver();
+    btn.addEventListener("click", async () => {
+        const data = await loadJSON("data/debug.json");
+        if (!data) return;
+        
+        openIncidentsModal(data);
+    });
 }
 
-function openIncidentsModal(data, targetIndex = 0) {
+function openIncidentsModal(data) {
     const modal = document.getElementById("project-modal");
     const content = document.getElementById("modal-content");
     

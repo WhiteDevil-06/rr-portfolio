@@ -19,12 +19,6 @@
 
     <!-- CSS Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
-
-    <!-- Vercel Analytics -->
-    <script>
-        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-    </script>
-    <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
     <!-- Canvas Technical Grid & Coordinate Layer -->
@@ -299,8 +293,16 @@
                     </blockquote>
                 </div>
 
-                <div class="incidents-grid" id="incidents-grid">
-                    <!-- Populated dynamically via JS as swipeable tiles -->
+                <div class="incident-summary-card reveal-element" id="incident-summary-btn" role="button" tabindex="0">
+                    <div class="summary-content">
+                        <span class="mono-accent">LOGBOOK</span>
+                        <h3 class="summary-title">Incident Post-Mortems</h3>
+                        <p class="summary-desc">Comprehensive reports on hardware failures, model crashes, and security parsing bottlenecks.</p>
+                    </div>
+                    <div class="summary-action">
+                        <span class="mono-label">READ LOGS</span>
+                        <svg class="btn-arrow" width="24" height="24" viewBox="0 0 16 16" fill="none"><path d="M3.33337 8H12.6667M12.6667 8L8.00004 3.33334M12.6667 8L8.00004 12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
                 </div>
             </div>
         </section>
