@@ -262,7 +262,7 @@ async function initProjectsGrid() {
         const statusText = proj.statusLabel || (proj.status ? proj.status.replace("_", " ").toUpperCase() : "ACTIVE");
 
         return `
-            <article class="project-card reveal-element" data-category="${catList}" onclick="openProjectModal('${proj.id}')">
+            <article class="project-card reveal-element" data-category="${catList}">
                 <div class="project-image-wrapper">
                     <img src="${imgSrc}" alt="${imgAlt}" class="project-img" loading="lazy" style="object-position: ${imgPos};" />
                     <span class="project-badge">${statusText}</span>
